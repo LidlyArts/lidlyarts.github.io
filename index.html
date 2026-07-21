@@ -764,7 +764,7 @@ textarea{
  detached from the nav/footer instead of sharing their area. There's no
  open/closed slide state here: there's no inline panel to reveal, clicking
  it jumps straight to the full screen email popup (styles further down,
- next to the other modals). Only ever shown while the Commission status
+ next to the other modals). Only ever shown while the Commissions
  page is active, toggled from JS in renderAnnouncementWidget(). */
 .mail-notify-btn{
   display:none;
@@ -1137,6 +1137,200 @@ textarea{
   font-size:24px;
   color:var(--card);
   opacity:0.85;
+}
+
+/* commissions (landing picker, status, FAQ, pricing sheets, price calculator) */
+.commissions-landing-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  max-width:640px;
+  margin:12px auto 0;
+}
+.commissions-landing-card{
+  display:block;
+  width:100%;
+  border:none;
+  background:var(--card);
+  border-radius:20px;
+  padding:28px 24px 24px;
+  text-align:center;
+  cursor:pointer;
+  box-shadow:2px 6px 16px rgba(0,0,0,0.1);
+  transform:rotate(-0.6deg);
+  transition:transform 0.15s ease, box-shadow 0.15s ease;
+}
+.commissions-landing-card:nth-child(even){ transform:rotate(0.6deg); }
+.commissions-landing-card:hover{
+  transform:rotate(0deg) translateY(-5px);
+  box-shadow:4px 10px 22px rgba(0,0,0,0.16);
+}
+.commissions-landing-icon{ font-size:44px; display:block; }
+.commissions-landing-label{
+  font-family:'Patrick Hand', cursive;
+  font-size:28px;
+  color:var(--ink);
+  margin:14px 0 4px;
+}
+.commissions-landing-desc{
+  font-size:13px;
+  color:var(--ink-light);
+  margin:0;
+}
+
+.faq-list{ max-width:720px; margin-bottom:44px; }
+.faq-card{
+  background:var(--card);
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:14px;
+  padding:20px 24px;
+  margin-bottom:16px;
+  box-shadow:2px 3px 8px rgba(0,0,0,0.06);
+}
+.faq-q{
+  font-family:'Patrick Hand', cursive;
+  font-size:22px;
+  color:var(--ink);
+  margin:0 0 8px;
+}
+.faq-a{
+  font-size:15px;
+  line-height:1.6;
+  color:var(--charcoal);
+  margin:0;
+}
+
+.price-sheet-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:24px;
+  margin-bottom:44px;
+}
+.price-sheet-card{
+  background:var(--card);
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:16px;
+  padding:24px;
+  box-shadow:2px 4px 10px rgba(0,0,0,0.08);
+}
+.price-sheet-title{
+  font-family:'Patrick Hand', cursive;
+  font-size:26px;
+  color:var(--ink);
+  margin:0 0 4px;
+}
+.price-sheet-aside{
+  font-size:13px;
+  font-style:italic;
+  color:var(--ink-light);
+  margin:0 0 16px;
+}
+.price-sheet-tier{ margin-bottom:16px; }
+.price-sheet-tier-label{
+  font-family:'JetBrains Mono', monospace;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.03em;
+  color:var(--sage);
+  text-transform:uppercase;
+  margin:0 0 8px;
+}
+.price-sheet-order{ text-transform:none; font-weight:400; color:var(--ink-light); }
+.price-sheet-list{ list-style:none; margin:0; padding:0; }
+.price-sheet-list li{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  font-size:14px;
+  padding:4px 0;
+  border-bottom:1px dashed rgba(0,0,0,0.1);
+}
+.price-sheet-list li:last-child{ border-bottom:none; }
+.price-sheet-list li span:last-child{ font-weight:600; color:var(--ink); white-space:nowrap; }
+.price-sheet-extra-char{
+  font-size:13px;
+  color:var(--ink-light);
+  border-top:2px dashed rgba(0,0,0,0.12);
+  padding-top:12px;
+  margin:4px 0 0;
+}
+
+.calc-card{
+  background:var(--card);
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:16px;
+  padding:28px 30px;
+  max-width:560px;
+  margin:0 auto;
+  box-shadow:2px 4px 10px rgba(0,0,0,0.08);
+}
+.calc-row{ margin-bottom:16px; }
+.calc-row select{ width:100%; }
+.calc-hint{
+  font-size:12px;
+  color:var(--ink-light);
+  margin:6px 0 0;
+}
+.calc-extra-characters{ margin-bottom:8px; }
+.calc-extra-character-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:10px;
+}
+.calc-extra-character-label{
+  font-family:'JetBrains Mono', monospace;
+  font-size:12px;
+  color:var(--ink-light);
+  flex-shrink:0;
+  width:88px;
+}
+.calc-extra-character-row select{ flex:1; width:auto; }
+.calc-remove-character-btn{
+  flex-shrink:0;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  border:1px solid rgba(0,0,0,0.18);
+  background:transparent;
+  color:var(--danger);
+  font-size:16px;
+  line-height:1;
+  cursor:pointer;
+}
+.calc-remove-character-btn:hover{ background:var(--sage-light); }
+#calcAddCharacterBtn{ margin-bottom:24px; }
+.calc-total-strip{
+  background:var(--sage-light);
+  border-radius:14px;
+  padding:18px 22px;
+  margin-bottom:14px;
+}
+.calc-breakdown-row{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  font-size:13px;
+  color:var(--ink-light);
+  padding:3px 0;
+}
+.calc-total{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-top:10px;
+  padding-top:10px;
+  border-top:2px dashed rgba(0,0,0,0.15);
+  font-family:'Patrick Hand', cursive;
+  font-size:22px;
+  color:var(--ink);
+}
+.calc-total-num{ font-size:32px; font-weight:700; }
+.calc-disclaimer{
+  font-size:12px;
+  color:var(--ink-light);
+  opacity:0.85;
+  margin:0;
 }
 
 /* admin */
@@ -2356,6 +2550,14 @@ input.archive-search-input{
   .archive-filter-dropdown{ width:100%; }
   .archive-filter-toggle{ width:100%; }
   .archive-bulk-bar{ flex-direction:column; align-items:stretch; }
+
+  .commissions-landing-grid{ grid-template-columns:1fr; gap:18px; max-width:100%; }
+  .commissions-landing-card{ padding:22px 18px 18px; }
+  .price-sheet-grid{ grid-template-columns:1fr; }
+  .faq-card{ padding:16px 18px; }
+  .price-sheet-card{ padding:18px; }
+  .calc-card{ padding:20px 18px; max-width:100%; }
+  .calc-extra-character-label{ width:auto; }
 }
 </style>
 </head>
@@ -2368,7 +2570,7 @@ input.archive-search-input{
     </button>
     <div class="nav-links" id="navLinks">
       <button data-page="home" class="active">Home</button>
-      <button data-page="status">Commission status</button>
+      <button data-page="commissions">Commissions</button>
       <button data-page="funcorner">Fun corner</button>
       <button data-page="blog">Blog</button>
       <button data-page="ocs">OC's</button>
@@ -2393,7 +2595,7 @@ input.archive-search-input{
     <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&times;</button>
     <div class="mobile-menu-list">
       <button data-page="home" class="mobile-menu-link mobile-menu-link-a">Home</button>
-      <button data-page="status" class="mobile-menu-link mobile-menu-link-b">Commission status</button>
+      <button data-page="commissions" class="mobile-menu-link mobile-menu-link-b">Commissions</button>
       <div class="mobile-menu-divider"></div>
       <button data-page="funcorner" class="mobile-menu-link mobile-menu-link-c">Fun corner</button>
       <button data-page="blog" class="mobile-menu-link mobile-menu-link-d">Blog</button>
@@ -2794,9 +2996,37 @@ input.archive-search-input{
     </div>
   </div>
 
-  <div class="page" id="page-status">
-    <h1 class="hero-title" style="font-size:52px;">Commission status</h1>
-    <p class="tagline">Wanna know if I have any slots open? Curious to see what I'm working on right now? Wanna make sure I put in any work at all? Look no further, for this page provides you with all relevant information !</p>
+  <div class="page" id="page-commissions">
+    <h1 class="hero-title" style="font-size:52px;">Commissions</h1>
+    <p class="tagline">Pick what you want to see.</p>
+    <div class="commissions-landing-grid">
+      <button type="button" class="commissions-landing-card" data-page="commissions-status">
+        <span class="commissions-landing-icon" aria-hidden="true">📌</span>
+        <p class="commissions-landing-label">Status</p>
+        <p class="commissions-landing-desc">Current project, backlog &amp; open slots</p>
+      </button>
+      <button type="button" class="commissions-landing-card" data-page="commissions-faq">
+        <span class="commissions-landing-icon" aria-hidden="true">❓</span>
+        <p class="commissions-landing-label">FAQ</p>
+        <p class="commissions-landing-desc">Answers to what I get asked the most</p>
+      </button>
+      <button type="button" class="commissions-landing-card" data-page="commissions-pricing">
+        <span class="commissions-landing-icon" aria-hidden="true">🏷️</span>
+        <p class="commissions-landing-label">Pricing</p>
+        <p class="commissions-landing-desc">Every style, full color &amp; line art</p>
+      </button>
+      <button type="button" class="commissions-landing-card" data-page="commissions-calculator">
+        <span class="commissions-landing-icon" aria-hidden="true">🧮</span>
+        <p class="commissions-landing-label">Calculator</p>
+        <p class="commissions-landing-desc">Estimate your price</p>
+      </button>
+    </div>
+  </div>
+
+  <div class="page" id="page-commissions-status">
+    <button type="button" class="archive-back-link" data-page="commissions">&larr; Back to Commissions</button>
+    <h1 class="hero-title" style="font-size:52px;">Status</h1>
+    <p class="tagline">Wanna know if I have any slots open? Curious to see what I'm working on right now? Look no further, for this page provides you with all relevant information!</p>
     <div class="corkboard">
       <p class="section-label">Currently working on</p>
       <div class="pin-card rot-a">
@@ -2813,6 +3043,189 @@ input.archive-search-input{
         <span>open slots right now</span>
       </div>
       <p class="contact-note">Interested in a commission? Contact me on my various socials (preferrably Twitter/X), down below!</p>
+    </div>
+  </div>
+
+  <div class="page" id="page-commissions-faq">
+    <button type="button" class="archive-back-link" data-page="commissions">&larr; Back to Commissions</button>
+    <h1 class="hero-title" style="font-size:52px;">FAQ</h1>
+    <p class="tagline">Answers to what I get asked the most.</p>
+    <div class="faq-list">
+      <div class="faq-card">
+        <p class="faq-q">What if I want to commission a drawing in one of your styles not currently listed?</p>
+        <p class="faq-a">Ask me about it in DMs and we can discuss possibilities and pricing etc. I will most likely not agree to drawing in my more realistic style at the moment, though, since they take too much time.</p>
+      </div>
+      <div class="faq-card">
+        <p class="faq-q">Are prices negotiable?</p>
+        <p class="faq-a">To a certain extent, yes. I understand that these prices are unaffordable to people from third world countries, so I am always willing to discuss possible discounts in those cases. I will however <strong>NOT</strong> be doing free commissions! Those are called art requests, and you can drop those on my StrawPage.</p>
+      </div>
+      <div class="faq-card">
+        <p class="faq-q">Are there things you will not draw?</p>
+        <p class="faq-a">I try to know my limits, both for my own sake and that of customers. I might turn down complex perspectives or very complicated backgrounds that I cannot currently draw (well). I also do not draw NSFW content, political themes/dogwhistles, furries/animals, or excessive blood &amp; violence (gore). Things that somewhat touch on online political culture are usually okay, such as a character wearing a "nothing ever happens shirt" or doing the Soyjak pointing pose. But I will not draw Mymy holding hands with Chudjak.</p>
+      </div>
+      <div class="faq-card">
+        <p class="faq-q">How long will it take?</p>
+        <p class="faq-a">It depends on the style and complexity, but I will always give you an estimation beforehand and will let you know when there's a delay.</p>
+      </div>
+      <div class="faq-card">
+        <p class="faq-q">How does payment work?</p>
+        <p class="faq-a">I accept both half up front &amp; half after, and full up front payment. For privacy reasons, I prefer being paid through ko-fi. If your country doesn't support that platform, we can discuss other ways of sending me the money.</p>
+      </div>
+      <div class="faq-card">
+        <p class="faq-q">How much do you charge extra for accessories such as phones or guns or such?</p>
+        <p class="faq-a">I usually count them as part of the background and will price them according to their complexity. Usually I will count them as part of a "simple background".</p>
+      </div>
+      <div class="faq-card">
+        <p class="faq-q">Where do I message you about commissions?</p>
+        <p class="faq-a">Preferably Twitter DMs, but Discord is also okay. Do know that I might remove you as a friend post-commission, please don't take that personally. I just use Discord DMs mostly for friends and have it open all the time, so I am very selective about who I open my DMs for outside of business/mod stuff.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page" id="page-commissions-pricing">
+    <button type="button" class="archive-back-link" data-page="commissions">&larr; Back to Commissions</button>
+    <h1 class="hero-title" style="font-size:52px;">Pricing</h1>
+    <p class="tagline">Every style comes in full color or line art, priced by how much of the character is shown.</p>
+    <div class="price-sheet-grid">
+      <div class="price-sheet-card">
+        <h3 class="price-sheet-title">"Ongezellig" style</h3>
+        <div class="price-sheet-tier">
+          <p class="price-sheet-tier-label">Full color <span class="price-sheet-order">(1st character)</span></p>
+          <ul class="price-sheet-list">
+            <li><span>Full body</span><span>$50</span></li>
+            <li><span>Head to hips</span><span>$40</span></li>
+            <li><span>Head &amp; bust</span><span>$35</span></li>
+          </ul>
+        </div>
+        <div class="price-sheet-tier">
+          <p class="price-sheet-tier-label">Line art <span class="price-sheet-order">(2nd character)</span></p>
+          <ul class="price-sheet-list">
+            <li><span>Full body</span><span>$30</span></li>
+            <li><span>Head to hips</span><span>$25</span></li>
+            <li><span>Head &amp; bust</span><span>$20</span></li>
+          </ul>
+        </div>
+        <div class="price-sheet-tier">
+          <p class="price-sheet-tier-label">Extra details <span class="price-sheet-order">(full color only)</span></p>
+          <ul class="price-sheet-list">
+            <li><span>Single color / gradient / polka dot background (incl. overlapped)</span><span>+$0</span></li>
+            <li><span>Simple drawn background (grass, sky with clouds, trees, etc.)</span><span>+$5</span></li>
+            <li><span>Complex background (room with furniture, etc.)</span><span>+$10</span></li>
+          </ul>
+        </div>
+        <p class="price-sheet-extra-char">+ Extra character: half the price of the original character (so +$25 full body, +$20 head to hips, +$17.50 head &amp; bust)</p>
+      </div>
+
+      <div class="price-sheet-card">
+        <h3 class="price-sheet-title">Own style</h3>
+        <div class="price-sheet-tier">
+          <p class="price-sheet-tier-label">Full color <span class="price-sheet-order">(1st character)</span></p>
+          <ul class="price-sheet-list">
+            <li><span>Full body</span><span>$80</span></li>
+            <li><span>Head to hips</span><span>$70</span></li>
+            <li><span>Head &amp; bust</span><span>$65</span></li>
+          </ul>
+        </div>
+        <div class="price-sheet-tier">
+          <p class="price-sheet-tier-label">Line art <span class="price-sheet-order">(2nd character)</span></p>
+          <ul class="price-sheet-list">
+            <li><span>Full body</span><span>$50</span></li>
+            <li><span>Head to hips</span><span>$40</span></li>
+            <li><span>Head &amp; bust</span><span>$35</span></li>
+          </ul>
+        </div>
+        <div class="price-sheet-tier">
+          <p class="price-sheet-tier-label">Extra details <span class="price-sheet-order">(full color only)</span></p>
+          <ul class="price-sheet-list">
+            <li><span>Single color / gradient / polka dot background (incl. overlapped)</span><span>+$0</span></li>
+            <li><span>Simple drawn background (grass, sky with clouds, trees, etc.)</span><span>+$5</span></li>
+            <li><span>Complex background (room with furniture, etc.)</span><span>+$10</span></li>
+          </ul>
+        </div>
+        <p class="price-sheet-extra-char">+ Extra character: half the price of the original character (so +$40 full body, +$35 head to hips, +$32.50 head &amp; bust)</p>
+      </div>
+
+      <div class="price-sheet-card">
+        <h3 class="price-sheet-title">Pixel art <span class="price-sheet-order">(sort of)</span></h3>
+        <p class="price-sheet-aside">idk what to call this pixel brush genuinely, it's just called "pencil" in PS 😭</p>
+        <div class="price-sheet-tier">
+          <p class="price-sheet-tier-label">Full color <span class="price-sheet-order">(1st character)</span></p>
+          <ul class="price-sheet-list">
+            <li><span>Full body</span><span>$60</span></li>
+            <li><span>Head to hips</span><span>$50</span></li>
+            <li><span>Head &amp; bust</span><span>$45</span></li>
+          </ul>
+        </div>
+        <div class="price-sheet-tier">
+          <p class="price-sheet-tier-label">Line art <span class="price-sheet-order">(2nd character)</span></p>
+          <ul class="price-sheet-list">
+            <li><span>Full body</span><span>$25</span></li>
+            <li><span>Head to hips</span><span>$20</span></li>
+            <li><span>Head &amp; bust</span><span>$15</span></li>
+          </ul>
+        </div>
+        <div class="price-sheet-tier">
+          <p class="price-sheet-tier-label">Extra details <span class="price-sheet-order">(full color only)</span></p>
+          <ul class="price-sheet-list">
+            <li><span>Single color / gradient / polka dot background (incl. overlapped)</span><span>+$0</span></li>
+            <li><span>Simple drawn background (grass, sky with clouds, trees, etc.)</span><span>+$10</span></li>
+            <li><span>Complex background (room with furniture, etc.)</span><span>+$20</span></li>
+          </ul>
+        </div>
+        <p class="price-sheet-extra-char">+ Extra character: half the price of the original character (so +$30 full body, +$22.50 head to hips, +$15 head &amp; bust)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page" id="page-commissions-calculator">
+    <button type="button" class="archive-back-link" data-page="commissions">&larr; Back to Commissions</button>
+    <h1 class="hero-title" style="font-size:52px;">Calculate your commission price</h1>
+    <p class="tagline">A rough, just-for-fun estimate, not a formal quote. <a href="https://x.com/LidlyArts" target="_blank" rel="noopener">Message me</a> to confirm the real price!</p>
+    <div class="calc-card">
+      <div class="calc-row">
+        <label class="field-label" for="calcStyle">Style</label>
+        <select id="calcStyle" class="blog-filter-select calc-select">
+          <option value="ongezellig">"Ongezellig" style</option>
+          <option value="own">Own style</option>
+          <option value="pixel">Pixel art (sort of)</option>
+        </select>
+      </div>
+      <div class="calc-row">
+        <label class="field-label" for="calcColorType">Color type</label>
+        <select id="calcColorType" class="blog-filter-select calc-select">
+          <option value="fullColor">Full color</option>
+          <option value="lineArt">Line art</option>
+        </select>
+      </div>
+      <div class="calc-row">
+        <label class="field-label" for="calcCoverage">Coverage</label>
+        <select id="calcCoverage" class="blog-filter-select calc-select">
+          <option value="full">Full body</option>
+          <option value="hips">Head to hips</option>
+          <option value="bust">Head &amp; bust</option>
+        </select>
+      </div>
+      <div class="calc-row">
+        <label class="field-label" for="calcBackground">Background</label>
+        <select id="calcBackground" class="blog-filter-select calc-select">
+          <option value="none">Single color / gradient / polka dot (+$0)</option>
+          <option value="simple">Simple drawn background</option>
+          <option value="complex">Complex background</option>
+        </select>
+        <p class="calc-hint" id="calcBackgroundHint" style="display:none;">Detailed backgrounds are a full color only service — line art pieces can still get a flat/gradient/pattern backdrop at no extra cost.</p>
+      </div>
+
+      <div class="calc-extra-characters" id="calcExtraCharacters"></div>
+      <button type="button" class="btn btn-ghost" id="calcAddCharacterBtn">+ Add another character</button>
+
+      <div class="calc-total-strip">
+        <div class="calc-breakdown" id="calcBreakdown"></div>
+        <div class="calc-total">
+          <span>Estimated total</span>
+          <span class="calc-total-num" id="calcTotalNum">$0</span>
+        </div>
+      </div>
+      <p class="calc-disclaimer">Estimate only! Prices can be a little negotiable (see the FAQ above) and anything unusual I haven't accounted for here may change the final price.</p>
     </div>
   </div>
 
@@ -3135,7 +3548,7 @@ input.archive-search-input{
         <input type="number" id="editSlots" min="0" max="20">
 
         <label class="pin-checkbox" style="margin-bottom:16px;">
-          <input type="checkbox" id="editCommissionsOpen"> Commissions open (uncheck to show the closed popup on the Commission status page)
+          <input type="checkbox" id="editCommissionsOpen"> Commissions open (uncheck to show the closed popup on the Commissions page)
         </label>
 
         <label class="field-label">announcement title (optional)</label>
@@ -3143,7 +3556,7 @@ input.archive-search-input{
         <label class="field-label" style="margin-top:14px;">announcement message</label>
         <textarea id="editAnnouncementText" rows="3" placeholder="e.g. Running a bit behind this week due to travel!"></textarea>
         <label class="pin-checkbox" style="margin-bottom:16px;">
-          <input type="checkbox" id="editAnnouncementEnabled"> Show this announcement (a mail icon appears on the Commission status page, opening it like an email)
+          <input type="checkbox" id="editAnnouncementEnabled"> Show this announcement (a mail icon appears on the Commissions page, opening it like an email)
         </label>
 
         <label class="field-label">backlog</label>
@@ -3305,7 +3718,11 @@ var mobileMenuClose = document.getElementById('mobileMenuClose');
 // Browser tab title shown for each page, set in goToPage()
 var PAGE_TITLES = {
   home: 'Home',
-  status: 'Commission status',
+  commissions: 'Commissions',
+  'commissions-status': 'Commission Status',
+  'commissions-faq': 'Commission FAQ',
+  'commissions-pricing': 'Commission Pricing',
+  'commissions-calculator': 'Price Calculator',
   funcorner: 'Fun corner',
   blog: 'Blog',
   ocs: "OC's",
@@ -3321,15 +3738,17 @@ var PAGE_TITLES = {
 // actually navigating anywhere.
 function goToPage(page){
   document.querySelectorAll('[data-page]').forEach(function(b){
-    // the "Archive" nav tab stays highlighted while on either archive sub page too
+    // the "Archive"/"Commissions" nav tabs stay highlighted while on any of their sub pages too
     var isArchiveTab = b.dataset.page === 'archive' && (page === 'archive-videos' || page === 'archive-art');
-    b.classList.toggle('active', b.dataset.page === page || isArchiveTab); // highlight the matching nav button
+    var isCommissionsTab = b.dataset.page === 'commissions' &&
+      (page === 'commissions-status' || page === 'commissions-faq' || page === 'commissions-pricing' || page === 'commissions-calculator');
+    b.classList.toggle('active', b.dataset.page === page || isArchiveTab || isCommissionsTab); // highlight the matching nav button
   });
   pages.forEach(function(p){ p.classList.remove('active'); });
   document.getElementById('page-' + page).classList.add('active');
   document.title = PAGE_TITLES[page] || 'Home';
   // re render whichever page just became visible, in case its data changed
-  if(page === 'status'){
+  if(page === 'commissions-status'){
     renderPublic();
     if(!state.commissionsOpen){ openCommissionsClosedModal(); }
   }
@@ -3337,7 +3756,7 @@ function goToPage(page){
   if(page === 'archive-videos'){ renderArchiveVideos(); }
   if(page === 'archive-art'){ renderArchiveArtwork(); }
   if(page === 'admin' && document.getElementById('adminLoggedIn').style.display !== 'none'){ renderAdminForm(); }
-  renderAnnouncementWidget(); // hides itself when `page` isn't 'status'
+  renderAnnouncementWidget(); // hides itself when `page` isn't 'commissions-status'
 }
 
 // Wires up every nav button/link that has a data page attribute (desktop nav
@@ -3431,7 +3850,7 @@ document.addEventListener('keydown', function(e){
   }
 });
 
-// Renders the commission status page (public "current project" + "backlog" +
+// Renders the commissions page (public "current project" + "backlog" +
 // "open slots") from whatever's currently in the `state` object.
 function renderPublic(){
   if(boardLoading){
@@ -3479,9 +3898,9 @@ async function loadBoardFromSupabase(){
     }
     renderPublic();
     renderAnnouncementWidget();
-    // if the visitor is already sitting on the status page when this resolves, pop up right away
+    // if the visitor is already sitting on the commissions status page when this resolves, pop up right away
     // instead of waiting for them to leave and come back
-    if(!state.commissionsOpen && document.getElementById('page-status').classList.contains('active')){
+    if(!state.commissionsOpen && document.getElementById('page-commissions-status').classList.contains('active')){
       openCommissionsClosedModal();
     }
   } catch(err){
@@ -3493,11 +3912,11 @@ async function loadBoardFromSupabase(){
 
 // Mail notification icon (fixed to the left edge, see .mail notify btn) and
 // the full screen "email" popup it opens. Only ever shown while the
-// Commission status page is active and the admin has an announcement
+// Commissions status page is active and the admin has an announcement
 // enabled with a message.
 function renderAnnouncementWidget(){
-  var onStatusPage = document.getElementById('page-status').classList.contains('active');
-  var hasAnnouncement = onStatusPage && state.announcementEnabled && !!state.announcementText;
+  var onCommissionsPage = document.getElementById('page-commissions-status').classList.contains('active');
+  var hasAnnouncement = onCommissionsPage && state.announcementEnabled && !!state.announcementText;
   document.getElementById('mailNotifyBtn').style.display = hasAnnouncement ? 'block' : 'none';
   document.getElementById('mailModalSubject').textContent = state.announcementTitle;
   document.getElementById('mailModalBody').textContent = state.announcementText;
@@ -3517,7 +3936,7 @@ document.getElementById('mailModalOverlay').addEventListener('click', function(e
   if(e.target === this){ closeMailModal(); }
 });
 
-// Shown on the Commission status page whenever state.commissionsOpen is
+// Shown on the Commissions page whenever state.commissionsOpen is
 // false (toggled from the admins "Commissions open" checkbox).
 var commissionsClosedTimer = null;
 function openCommissionsClosedModal(){
@@ -3786,7 +4205,7 @@ var HELPER_LINES = [
   "What if Tuesday is just a rumor we all agreed to believe? Because by 1991, the Soviet Union definitely was.",
   "An attempted coup against Gorbachev in August 1991 failed spectacularly, accelerating the collapse.",
   "On December 25, 1991, the red flag over the Kremlin was lowered for the last time, and the USSR officially dissolved into 15 independent states.",
-  "Ok actually, for real help: try the commission status tab up top."
+  "Ok actually, for real help: try the Commissions tab up top."
 ];
 
 var helpBtn = document.getElementById('helpBtn');
@@ -3982,7 +4401,7 @@ function escapeHtml(str){
 // reused everywhere data is being fetched (commission board, art gallery,
 // blog, OC's, archive videos/artwork) instead of each page inventing its own
 // wording/markup for the same "please wait" moment. Pass onDark=true on a
-// dark background (only the commission status corkboard needs this) so the
+// dark background (only the commissions corkboard needs this) so the
 // label/track stay legible.
 function loadingBarHtml(label, onDark){
   return '<div class="loading-bar-wrap' + (onDark ? ' on-dark' : '') + '">' +
@@ -6542,7 +6961,7 @@ Fish.prototype.update = function(foods){
   var dy = this.target.y - this.y;
   var d2 = Math.hypot(dx, dy);
   if(d2 < 8){
-    this.target = randomTargetInBowl(); // arrived — pick somewhere new to wander to
+    this.target = randomTargetInBowl(); // arrived pick somewhere new to wander to
   } else {
     var vx = (dx / d2) * this.speed;
     var vy = (dy / d2) * this.speed + Math.sin(this.wobble) * 0.1; // wobble adds a gentle vertical sway
@@ -6711,6 +7130,11 @@ var SONGS = [
   { title: 'Childrens song', artist: '', src: 'songs/Childrens song.mp3' },
   { title: 'Anime', artist: '', src: 'songs/Anime.mp3' },
   { title: 'Lonely days in Deventer', artist: '', src: 'songs/Lonely days in Deventer.mp3' },
+  { title: 'Crunch on my bones', artist: '', src: 'songs/Crunch on my bones.mp3' },
+  { title: 'Geen Zin in Niks', artist: '', src: 'songs/Geen Zin in Niks.mp3' },
+  { title: 'Het Toeristendilemma', artist: '', src: 'songs/Het Toeristendilemma.mp3' },
+  { title: 'These words are flowing out my head', artist: '', src: 'songs/These words are flowing out my head mix2.mp3' },
+  { title: 'Blame Computers', artist: '', src: 'songs/Blame computers.mp3' },
 ];
 
 var musicAudio = document.getElementById('musicAudio');
@@ -8528,6 +8952,136 @@ loadArchiveArtwork();
       auntiePopup.setAttribute('aria-hidden', 'true');
     }, 3000);
   });
+})();
+
+// Commission price calculator
+(function(){
+  var PRICING = {
+    ongezellig: {
+      label: '"Ongezellig" style',
+      fullColor: { full: 50, hips: 40, bust: 35 },
+      lineArt:   { full: 30, hips: 25, bust: 20 },
+      simpleBg: 5,
+      complexBg: 10
+    },
+    own: {
+      label: 'Own style',
+      fullColor: { full: 80, hips: 70, bust: 65 },
+      lineArt:   { full: 50, hips: 40, bust: 35 },
+      simpleBg: 5,
+      complexBg: 10
+    },
+    pixel: {
+      label: 'Pixel art (sort of)',
+      fullColor: { full: 60, hips: 50, bust: 45 },
+      lineArt:   { full: 25, hips: 20, bust: 15 },
+      simpleBg: 10,
+      complexBg: 20
+    }
+  };
+  var COVERAGE_LABELS = { full: 'full body', hips: 'head to hips', bust: 'head & bust' };
+
+  var styleSelect = document.getElementById('calcStyle');
+  var colorTypeSelect = document.getElementById('calcColorType');
+  var coverageSelect = document.getElementById('calcCoverage');
+  var backgroundSelect = document.getElementById('calcBackground');
+  var backgroundHint = document.getElementById('calcBackgroundHint');
+  var extraWrap = document.getElementById('calcExtraCharacters');
+  var addCharacterBtn = document.getElementById('calcAddCharacterBtn');
+  var breakdownEl = document.getElementById('calcBreakdown');
+  var totalEl = document.getElementById('calcTotalNum');
+  if(!styleSelect) return; // calculator isn't on this page
+
+  var extraCharacters = []; // one entry per extra character
+
+  function money(n){
+    var rounded = Math.round(n * 100) / 100;
+    return '$' + (rounded % 1 === 0 ? rounded.toFixed(0) : rounded.toFixed(2));
+  }
+
+  function basePrice(styleKey, colorType, coverage){
+    var tier = colorType === 'lineArt' ? PRICING[styleKey].lineArt : PRICING[styleKey].fullColor;
+    return tier[coverage];
+  }
+  function updateBackgroundOptions(){
+    var isLineArt = colorTypeSelect.value === 'lineArt';
+    backgroundSelect.querySelector('option[value="simple"]').disabled = isLineArt;
+    backgroundSelect.querySelector('option[value="complex"]').disabled = isLineArt;
+    if(isLineArt && backgroundSelect.value !== 'none'){ backgroundSelect.value = 'none'; }
+    backgroundHint.style.display = isLineArt ? 'block' : 'none';
+  }
+
+  function renderExtraCharacters(){
+    extraWrap.innerHTML = extraCharacters.map(function(character, i){
+      return '<div class="calc-extra-character-row">' +
+          '<span class="calc-extra-character-label">Character ' + (i + 2) + '</span>' +
+          '<select class="blog-filter-select calc-extra-coverage" data-index="' + i + '">' +
+            '<option value="full"' + (character.coverage === 'full' ? ' selected' : '') + '>Full body</option>' +
+            '<option value="hips"' + (character.coverage === 'hips' ? ' selected' : '') + '>Head to hips</option>' +
+            '<option value="bust"' + (character.coverage === 'bust' ? ' selected' : '') + '>Head &amp; bust</option>' +
+          '</select>' +
+          '<button type="button" class="calc-remove-character-btn" data-index="' + i + '" aria-label="Remove character">&times;</button>' +
+        '</div>';
+    }).join('');
+
+    extraWrap.querySelectorAll('.calc-extra-coverage').forEach(function(select){
+      select.addEventListener('change', function(){
+        extraCharacters[Number(select.dataset.index)].coverage = select.value;
+        runCalculation();
+      });
+    });
+    extraWrap.querySelectorAll('.calc-remove-character-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        extraCharacters.splice(Number(btn.dataset.index), 1);
+        renderExtraCharacters();
+        runCalculation();
+      });
+    });
+  }
+
+  function runCalculation(){
+    updateBackgroundOptions();
+
+    var styleKey = styleSelect.value;
+    var style = PRICING[styleKey];
+    var colorType = colorTypeSelect.value;
+    var coverage = coverageSelect.value;
+    var background = backgroundSelect.value;
+    var bgCost = background === 'simple' ? style.simpleBg : background === 'complex' ? style.complexBg : 0;
+
+    var rows = [{
+      label: style.label + ', ' + (colorType === 'lineArt' ? 'line art' : 'full color') + ', ' + COVERAGE_LABELS[coverage],
+      amount: basePrice(styleKey, colorType, coverage)
+    }];
+    var total = rows[0].amount;
+
+    extraCharacters.forEach(function(character, i){
+      var amount = basePrice(styleKey, colorType, character.coverage) / 2;
+      rows.push({ label: 'Extra character ' + (i + 2) + ' (' + COVERAGE_LABELS[character.coverage] + ')', amount: amount });
+      total += amount;
+    });
+
+    if(bgCost > 0){
+      rows.push({ label: (background === 'simple' ? 'Simple' : 'Complex') + ' background', amount: bgCost });
+      total += bgCost;
+    }
+
+    breakdownEl.innerHTML = rows.map(function(row){
+      return '<div class="calc-breakdown-row"><span>' + row.label + '</span><span>' + money(row.amount) + '</span></div>';
+    }).join('');
+    totalEl.textContent = money(total);
+  }
+
+  [styleSelect, colorTypeSelect, coverageSelect, backgroundSelect].forEach(function(select){
+    select.addEventListener('change', runCalculation);
+  });
+  addCharacterBtn.addEventListener('click', function(){
+    extraCharacters.push({ coverage: 'full' });
+    renderExtraCharacters();
+    runCalculation();
+  });
+
+  runCalculation();
 })();
 </script>
 </body>
