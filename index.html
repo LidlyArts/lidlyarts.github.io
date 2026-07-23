@@ -1343,6 +1343,31 @@ textarea{
   margin:0 auto;
   text-align:left;
 }
+.price-admin-style-label{
+  font-family:'Patrick Hand', cursive;
+  font-size:20px;
+  color:var(--ink);
+  margin:20px 0 4px;
+  border-top:2px dashed rgba(0,0,0,0.12);
+  padding-top:16px;
+}
+.admin-card .price-admin-style-label:first-child{ margin-top:0; border-top:none; padding-top:0; }
+.price-admin-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:4px;
+}
+.price-admin-field{
+  display:flex;
+  flex-direction:column;
+  font-family:'JetBrains Mono', monospace;
+  font-size:11px;
+  color:var(--ink-light);
+  flex:1;
+  min-width:100px;
+}
+.price-admin-field input{ margin-top:4px; margin-bottom:0; }
 #adminLoggedOut{
   text-align:center;
 }
@@ -2948,7 +2973,7 @@ input.archive-search-input{
 
   <div class="page active" id="page-home">
     <h1 class="hero-title">LidlyArts Portfolio</h1>
-    <p class="tagline">Character art, OC's and the occasional weird sketches</p>
+    <p class="tagline">A compilation of my favorite works!<br><br><b>NOTE:</b> The thumbnails are blurry to help the page load faster. Click on an artwork to see it in HD.</p>
 
     <div class="art-composer" id="artComposer" style="display:none;">
       <p class="field-label">add art piece</p>
@@ -3086,95 +3111,7 @@ input.archive-search-input{
     <button type="button" class="archive-back-link" data-page="commissions">&larr; Back to Commissions</button>
     <h1 class="hero-title" style="font-size:52px;">Pricing</h1>
     <p class="tagline">Every style comes in full color or line art, priced by how much of the character is shown.</p>
-    <div class="price-sheet-grid">
-      <div class="price-sheet-card">
-        <h3 class="price-sheet-title">"Ongezellig" style</h3>
-        <div class="price-sheet-tier">
-          <p class="price-sheet-tier-label">Full color <span class="price-sheet-order">(1st character)</span></p>
-          <ul class="price-sheet-list">
-            <li><span>Full body</span><span>$50</span></li>
-            <li><span>Head to hips</span><span>$40</span></li>
-            <li><span>Head &amp; bust</span><span>$35</span></li>
-          </ul>
-        </div>
-        <div class="price-sheet-tier">
-          <p class="price-sheet-tier-label">Line art <span class="price-sheet-order">(2nd character)</span></p>
-          <ul class="price-sheet-list">
-            <li><span>Full body</span><span>$30</span></li>
-            <li><span>Head to hips</span><span>$25</span></li>
-            <li><span>Head &amp; bust</span><span>$20</span></li>
-          </ul>
-        </div>
-        <div class="price-sheet-tier">
-          <p class="price-sheet-tier-label">Extra details <span class="price-sheet-order">(full color only)</span></p>
-          <ul class="price-sheet-list">
-            <li><span>Single color / gradient / polka dot background (incl. overlapped)</span><span>+$0</span></li>
-            <li><span>Simple drawn background (grass, sky with clouds, trees, etc.)</span><span>+$5</span></li>
-            <li><span>Complex background (room with furniture, etc.)</span><span>+$10</span></li>
-          </ul>
-        </div>
-        <p class="price-sheet-extra-char">+ Extra character: half the price of the original character (so +$25 full body, +$20 head to hips, +$17.50 head &amp; bust)</p>
-      </div>
-
-      <div class="price-sheet-card">
-        <h3 class="price-sheet-title">Own style</h3>
-        <div class="price-sheet-tier">
-          <p class="price-sheet-tier-label">Full color <span class="price-sheet-order">(1st character)</span></p>
-          <ul class="price-sheet-list">
-            <li><span>Full body</span><span>$80</span></li>
-            <li><span>Head to hips</span><span>$70</span></li>
-            <li><span>Head &amp; bust</span><span>$65</span></li>
-          </ul>
-        </div>
-        <div class="price-sheet-tier">
-          <p class="price-sheet-tier-label">Line art <span class="price-sheet-order">(2nd character)</span></p>
-          <ul class="price-sheet-list">
-            <li><span>Full body</span><span>$50</span></li>
-            <li><span>Head to hips</span><span>$40</span></li>
-            <li><span>Head &amp; bust</span><span>$35</span></li>
-          </ul>
-        </div>
-        <div class="price-sheet-tier">
-          <p class="price-sheet-tier-label">Extra details <span class="price-sheet-order">(full color only)</span></p>
-          <ul class="price-sheet-list">
-            <li><span>Single color / gradient / polka dot background (incl. overlapped)</span><span>+$0</span></li>
-            <li><span>Simple drawn background (grass, sky with clouds, trees, etc.)</span><span>+$5</span></li>
-            <li><span>Complex background (room with furniture, etc.)</span><span>+$10</span></li>
-          </ul>
-        </div>
-        <p class="price-sheet-extra-char">+ Extra character: half the price of the original character (so +$40 full body, +$35 head to hips, +$32.50 head &amp; bust)</p>
-      </div>
-
-      <div class="price-sheet-card">
-        <h3 class="price-sheet-title">Pixel art <span class="price-sheet-order">(sort of)</span></h3>
-        <p class="price-sheet-aside">idk what to call this pixel brush genuinely, it's just called "pencil" in PS 😭</p>
-        <div class="price-sheet-tier">
-          <p class="price-sheet-tier-label">Full color <span class="price-sheet-order">(1st character)</span></p>
-          <ul class="price-sheet-list">
-            <li><span>Full body</span><span>$60</span></li>
-            <li><span>Head to hips</span><span>$50</span></li>
-            <li><span>Head &amp; bust</span><span>$45</span></li>
-          </ul>
-        </div>
-        <div class="price-sheet-tier">
-          <p class="price-sheet-tier-label">Line art <span class="price-sheet-order">(2nd character)</span></p>
-          <ul class="price-sheet-list">
-            <li><span>Full body</span><span>$25</span></li>
-            <li><span>Head to hips</span><span>$20</span></li>
-            <li><span>Head &amp; bust</span><span>$15</span></li>
-          </ul>
-        </div>
-        <div class="price-sheet-tier">
-          <p class="price-sheet-tier-label">Extra details <span class="price-sheet-order">(full color only)</span></p>
-          <ul class="price-sheet-list">
-            <li><span>Single color / gradient / polka dot background (incl. overlapped)</span><span>+$0</span></li>
-            <li><span>Simple drawn background (grass, sky with clouds, trees, etc.)</span><span>+$10</span></li>
-            <li><span>Complex background (room with furniture, etc.)</span><span>+$20</span></li>
-          </ul>
-        </div>
-        <p class="price-sheet-extra-char">+ Extra character: half the price of the original character (so +$30 full body, +$22.50 head to hips, +$15 head &amp; bust)</p>
-      </div>
-    </div>
+    <div class="price-sheet-grid" id="priceSheetGrid"></div>
   </div>
 
   <div class="page" id="page-commissions-calculator">
@@ -3565,6 +3502,11 @@ input.archive-search-input{
         <br>
         <button class="btn btn-primary" id="saveBtn">Save changes</button>
       </div>
+
+      <div class="admin-header" style="margin-top:32px;">
+        <h1 class="hero-title" style="font-size:36px; margin:0;">Edit commission pricing</h1>
+      </div>
+      <div class="admin-card" id="pricingAdminCard"></div>
     </div>
   </div>
 
@@ -3710,6 +3652,39 @@ var state = {
 };
 var boardLoading = supabaseConfigured; // true until loadBoardFromSupabase() resolves (success or failure)
 
+var PRICING_ROW_ID = 1; // commission_pricing is a single row table; this is that row's id
+
+// Commission price data: per style, full color/line art cost by coverage,
+// plus the two background add-on costs. `label` (and `aside`, pixel art's
+// little joke caption) are fixed in code, not admin-editable - only the
+// numbers below come from Supabase (see loadPricingFromSupabase()). These
+// are the pre-load/fallback defaults, shown until that resolves.
+var PRICING = {
+  ongezellig: {
+    label: '"Ongezellig" style',
+    fullColor: { full: 50, hips: 40, bust: 35 },
+    lineArt:   { full: 30, hips: 25, bust: 20 },
+    simpleBg: 5,
+    complexBg: 10
+  },
+  own: {
+    label: 'Own style',
+    fullColor: { full: 80, hips: 70, bust: 65 },
+    lineArt:   { full: 50, hips: 40, bust: 35 },
+    simpleBg: 5,
+    complexBg: 10
+  },
+  pixel: {
+    label: 'Pixel art (sort of)',
+    aside: 'idk what to call this pixel brush genuinely, it\'s just called "pencil" in PS 😭',
+    fullColor: { full: 60, hips: 50, bust: 45 },
+    lineArt:   { full: 25, hips: 20, bust: 15 },
+    simpleBg: 10,
+    complexBg: 20
+  }
+};
+var COVERAGE_LABELS = { full: 'full body', hips: 'head to hips', bust: 'head & bust' };
+
 var pages = document.querySelectorAll('.page'); // every <div class="page"> section (home, status, blog, etc.)
 var navBurger = document.getElementById('navBurger');
 var mobileMenu = document.getElementById('mobileMenu');
@@ -3752,6 +3727,7 @@ function goToPage(page){
     renderPublic();
     if(!state.commissionsOpen){ openCommissionsClosedModal(); }
   }
+  if(page === 'commissions-pricing'){ renderPricingSheets(); }
   if(page === 'blog'){ renderBlogFeed(); }
   if(page === 'archive-videos'){ renderArchiveVideos(); }
   if(page === 'archive-art'){ renderArchiveArtwork(); }
@@ -3877,6 +3853,50 @@ function renderPublic(){
   document.getElementById('publicSlots').textContent = state.slots;
 }
 
+// Builds the 3 pricing cards (Commissions > Pricing) from the shared
+// PRICING object, so admin edited numbers show up immediately instead of
+// living as a separate hardcoded copy of every price in the markup. The
+// "extra character" line is computed here too (half of the full color
+// prices), so it can't go stale relative to whatever's actually charged.
+function renderPricingSheets(){
+  var grid = document.getElementById('priceSheetGrid');
+  if(!grid) return;
+  grid.innerHTML = Object.keys(PRICING).map(function(styleKey){
+    var style = PRICING[styleKey];
+    var asideHtml = style.aside ? '<p class="price-sheet-aside">' + style.aside + '</p>' : '';
+    return '' +
+      '<div class="price-sheet-card">' +
+        '<h3 class="price-sheet-title">' + style.label + '</h3>' +
+        asideHtml +
+        '<div class="price-sheet-tier">' +
+          '<p class="price-sheet-tier-label">Full color <span class="price-sheet-order">(1st character)</span></p>' +
+          '<ul class="price-sheet-list">' +
+            '<li><span>Full body</span><span>' + formatMoney(style.fullColor.full) + '</span></li>' +
+            '<li><span>Head to hips</span><span>' + formatMoney(style.fullColor.hips) + '</span></li>' +
+            '<li><span>Head &amp; bust</span><span>' + formatMoney(style.fullColor.bust) + '</span></li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="price-sheet-tier">' +
+          '<p class="price-sheet-tier-label">Line art <span class="price-sheet-order">(2nd character)</span></p>' +
+          '<ul class="price-sheet-list">' +
+            '<li><span>Full body</span><span>' + formatMoney(style.lineArt.full) + '</span></li>' +
+            '<li><span>Head to hips</span><span>' + formatMoney(style.lineArt.hips) + '</span></li>' +
+            '<li><span>Head &amp; bust</span><span>' + formatMoney(style.lineArt.bust) + '</span></li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="price-sheet-tier">' +
+          '<p class="price-sheet-tier-label">Extra details <span class="price-sheet-order">(full color only)</span></p>' +
+          '<ul class="price-sheet-list">' +
+            '<li><span>Single color / gradient / polka dot background (incl. overlapped)</span><span>+$0</span></li>' +
+            '<li><span>Simple drawn background (grass, sky with clouds, trees, etc.)</span><span>+' + formatMoney(style.simpleBg) + '</span></li>' +
+            '<li><span>Complex background (room with furniture, etc.)</span><span>+' + formatMoney(style.complexBg) + '</span></li>' +
+          '</ul>' +
+        '</div>' +
+        '<p class="price-sheet-extra-char">+ Extra character: half the price of the original character (so +' + formatMoney(style.fullColor.full / 2) + ' full body, +' + formatMoney(style.fullColor.hips / 2) + ' head to hips, +' + formatMoney(style.fullColor.bust / 2) + ' head &amp; bust)</p>' +
+      '</div>';
+  }).join('');
+}
+
 // Pulls the real commission_board row from Supabase and overwrites the local
 // state with it, then re renders. If Supabase isn't configured (or the
 // request fails) this just leaves the placeholder state above in place.
@@ -3907,6 +3927,35 @@ async function loadBoardFromSupabase(){
     boardLoading = false;
     console.error('Load failed:', err);
     renderPublic();
+  }
+}
+
+// Pulls the real commission_pricing row from Supabase and merges its
+// numbers into the local PRICING object (label/aside stay whatever's
+// hardcoded above - only the actual prices are admin-editable), then
+// re-renders everything built from that data. If Supabase isn't
+// configured or the row can't be read, the hardcoded defaults above just
+// stay in place.
+async function loadPricingFromSupabase(){
+  if(!supabaseConfigured) return;
+  try{
+    var result = await sb.from('commission_pricing').select('styles').eq('id', PRICING_ROW_ID).single();
+    if(result.error){ console.error('Pricing load failed:', result.error); return; }
+    if(result.data && result.data.styles){
+      Object.keys(result.data.styles).forEach(function(styleKey){
+        if(!PRICING[styleKey]) return;
+        var fetched = result.data.styles[styleKey];
+        if(fetched.fullColor) Object.assign(PRICING[styleKey].fullColor, fetched.fullColor);
+        if(fetched.lineArt) Object.assign(PRICING[styleKey].lineArt, fetched.lineArt);
+        if(typeof fetched.simpleBg === 'number') PRICING[styleKey].simpleBg = fetched.simpleBg;
+        if(typeof fetched.complexBg === 'number') PRICING[styleKey].complexBg = fetched.complexBg;
+      });
+    }
+    renderPricingSheets();
+    runCommissionCalculator();
+    if(document.getElementById('adminLoggedIn').style.display !== 'none'){ renderPricingAdminForm(); }
+  } catch(err){
+    console.error('Pricing load failed:', err);
   }
 }
 
@@ -4097,6 +4146,7 @@ function renderAdminForm(){
       renderAdminForm();
     });
   });
+  renderPricingAdminForm();
 }
 
 document.getElementById('addBacklogBtn').addEventListener('click', function(){
@@ -4154,11 +4204,94 @@ document.getElementById('saveBtn').addEventListener('click', async function(){
   setTimeout(function(){ btn.textContent = original; }, 1200);
 });
 
+var PRICE_COLOR_TYPES = [
+  { key: 'fullColor', label: 'Full color' },
+  { key: 'lineArt', label: 'Line art' }
+];
+var PRICE_COVERAGES = [
+  { key: 'full', label: 'Full body' },
+  { key: 'hips', label: 'Head to hips' },
+  { key: 'bust', label: 'Head & bust' }
+];
+
+// Fills in the pricing editor (Admin page, below the commission board
+// editor) from the shared PRICING object: one number input per
+// style/color-type/coverage combo, plus the two background add-on costs.
+function renderPricingAdminForm(){
+  var card = document.getElementById('pricingAdminCard');
+  if(!card) return;
+  card.innerHTML = Object.keys(PRICING).map(function(styleKey){
+    var style = PRICING[styleKey];
+    var colorRows = PRICE_COLOR_TYPES.map(function(colorType){
+      return '<p class="field-label" style="margin-top:14px;">' + colorType.label + '</p>' +
+        '<div class="price-admin-row">' +
+        PRICE_COVERAGES.map(function(coverage){
+          return '<label class="price-admin-field">' + coverage.label +
+            '<input type="number" min="0" step="0.01" data-style="' + styleKey + '" data-path="' + colorType.key + '.' + coverage.key + '" value="' + style[colorType.key][coverage.key] + '"></label>';
+        }).join('') +
+        '</div>';
+    }).join('');
+    var bgRow = '<p class="field-label" style="margin-top:14px;">Extra details (full color only)</p>' +
+      '<div class="price-admin-row">' +
+        '<label class="price-admin-field">Simple background<input type="number" min="0" step="0.01" data-style="' + styleKey + '" data-path="simpleBg" value="' + style.simpleBg + '"></label>' +
+        '<label class="price-admin-field">Complex background<input type="number" min="0" step="0.01" data-style="' + styleKey + '" data-path="complexBg" value="' + style.complexBg + '"></label>' +
+      '</div>';
+    return '<p class="price-admin-style-label">' + style.label + '</p>' + colorRows + bgRow;
+  }).join('') + '<button class="btn btn-primary" id="savePricingBtn" style="margin-top:20px;">Save pricing</button>';
+
+  document.getElementById('savePricingBtn').addEventListener('click', savePricingChanges);
+}
+
+// Reads every input back out of the pricing editor into the shared PRICING
+// object (same optimistic-update-then-push-to-Supabase flow as saveBtn
+// above), then re-renders the public pricing page and the calculator so
+// the new numbers show up immediately.
+async function savePricingChanges(){
+  document.querySelectorAll('#pricingAdminCard input[data-style]').forEach(function(input){
+    var styleKey = input.dataset.style;
+    var path = input.dataset.path.split('.');
+    var value = parseFloat(input.value) || 0;
+    if(path.length === 2){ PRICING[styleKey][path[0]][path[1]] = value; }
+    else { PRICING[styleKey][path[0]] = value; }
+  });
+
+  renderPricingSheets();
+  runCommissionCalculator();
+
+  var btn = document.getElementById('savePricingBtn');
+  var original = btn.textContent;
+
+  if(supabaseConfigured){
+    btn.textContent = "Saving...";
+    var payload = {};
+    Object.keys(PRICING).forEach(function(styleKey){
+      payload[styleKey] = {
+        fullColor: PRICING[styleKey].fullColor,
+        lineArt: PRICING[styleKey].lineArt,
+        simpleBg: PRICING[styleKey].simpleBg,
+        complexBg: PRICING[styleKey].complexBg
+      };
+    });
+    var result = await sb.from('commission_pricing').update({ styles: payload }).eq('id', PRICING_ROW_ID).select().single();
+    if(result.error){
+      console.error('Save failed:', result.error);
+      btn.textContent = "Save failed";
+      setTimeout(function(){ btn.textContent = original; }, 1500);
+      return;
+    }
+  }
+
+  btn.textContent = "Saved";
+  setTimeout(function(){ btn.textContent = original; }, 1200);
+}
+
 // initial page load: show placeholder state immediately, then swap in the
 // real data once it comes back from Supabase (avoids a blank flash)
 document.title = PAGE_TITLES.home;
 renderPublic();
 loadBoardFromSupabase();
+renderPricingSheets();
+loadPricingFromSupabase();
 document.getElementById('footerYear').textContent = new Date().getFullYear();
 
 // Ena easter egg
@@ -4349,11 +4482,9 @@ blogFilterSelect.addEventListener('change', function(){
 document.getElementById('blogImageInput').addEventListener('change', function(e){
   var files = Array.from(e.target.files || []);
   if(!files.length) return;
-  files.forEach(function(file){
-    resizeImageToDataUrl(file, 900, function(dataUrl){
-      composerBlogImages.push(dataUrl);
-      renderBlogImagePreviews();
-    });
+  files.forEach(async function(file){
+    var url = await resizeFileToStorageUrl(file, 900, 'blog');
+    if(url){ composerBlogImages.push(url); renderBlogImagePreviews(); }
   });
   e.target.value = ''; // clear the input so selecting the same file again still fires 'change'
 });
@@ -4869,7 +5000,7 @@ document.getElementById('publishBlogBtn').addEventListener('click', async functi
   // whatever's currently in the composer so the feed's cover image + count
   // are always accurate without it ever having to load the full images array
   var thumbnails = await Promise.all(composerBlogImages.map(function(src){
-    return new Promise(function(resolve){ resizeDataUrlToThumbnail(src, 320, resolve); });
+    return makeThumbnailAtUrl(src, 320, 'blog');
   }));
 
   if(editingPostId != null){
@@ -4943,12 +5074,17 @@ async function deleteBlogPost(id){
   // only hit Supabase for real (positive id) posts; a negative id means it
   // only ever existed in this browser tab's memory
   if(supabaseConfigured && numId > 0){
-    var result = await sb.from('blog_posts').delete().eq('id', numId);
-    if(result.error){
-      console.error('Delete failed:', result.error);
+    // .select() so the deleted row's images/thumbnails come back with it,
+    // letting us also clean up their Storage objects below
+    var result = await sb.from('blog_posts').delete().eq('id', numId).select();
+    if(result.error || !result.data || !result.data.length){
+      console.error('Delete failed:', result.error || 'no row was actually deleted (blocked by RLS?)');
       await showAlert('Delete failed, sorry auntie :< try again');
       return;
     }
+    var deletedPost = result.data[0];
+    await Promise.all((deletedPost.images || []).map(deleteImageByUrl));
+    await Promise.all((deletedPost.thumbnails || []).map(deleteImageByUrl));
   }
 
   blogPosts = blogPosts.filter(function(p){ return p.id != id; });
@@ -5014,39 +5150,109 @@ function resizeImageToDataUrl(file, maxDim, callback, forceJpeg){
   reader.readAsDataURL(file);
 }
 
-// Same idea as resizeImageToDataUrl(), but starting from a data URL that's
-// already stored (rather than a freshly picked File) used to backfill a
-// thumbnail for pieces that were uploaded before thumbnail_data existed,
-// without needing the original file again.
-function resizeDataUrlToThumbnail(dataUrl, maxDim, callback){
-  var img = new Image();
-  img.onload = function(){
-    var scale = Math.min(1, maxDim / Math.max(img.width, img.height));
-    var w = Math.round(img.width * scale);
-    var h = Math.round(img.height * scale);
-    var canvas = document.createElement('canvas');
-    canvas.width = w;
-    canvas.height = h;
-    canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-    callback(canvas.toDataURL('image/jpeg', 0.8));
-  };
-  img.onerror = function(){ callback(null); };
-  img.src = dataUrl;
+// --- Supabase Storage image helpers -----------------------------------
+// Everything below replaces the old "just store a base64 data URL in the
+// row" approach for real (Supabase backed) content: images now live as
+// actual files in the `site-images` Storage bucket, and the database only
+// keeps the short public URL string. That makes rows tiny again and lets
+// the browser/CDN cache images across visits instead of re-downloading
+// the whole thing from the database on every single page view. The Fun
+// Corner scrapbook isn't Supabase backed at all, so it keeps using
+// resizeImageToDataUrl() above unchanged.
+var IMAGE_BUCKET = 'site-images';
+
+// Uploads a Blob under `folder/` with a unique filename; resolves with its
+// public URL, or null if Supabase isn't configured or the upload failed.
+async function uploadImageBlob(blob, folder, ext){
+  if(!supabaseConfigured) return null;
+  var path = folder + '/' + Date.now() + '-' + Math.random().toString(36).slice(2) + '.' + ext;
+  var uploadResult = await sb.storage.from(IMAGE_BUCKET).upload(path, blob, { contentType: blob.type });
+  if(uploadResult.error){ console.error('Image upload failed:', uploadResult.error); return null; }
+  return sb.storage.from(IMAGE_BUCKET).getPublicUrl(path).data.publicUrl;
 }
 
-document.getElementById('artImageInput').addEventListener('change', function(e){
+// Recovers the storage path from a public URL produced by uploadImageBlob,
+// so a delete can target the right object. Returns null for anything that
+// isn't one of our own site-images URLs (old base64 values not migrated
+// yet, or an empty/missing field) - those are just left alone.
+function storagePathFromUrl(url){
+  if(!url) return null;
+  var marker = '/storage/v1/object/public/' + IMAGE_BUCKET + '/';
+  var idx = url.indexOf(marker);
+  return idx === -1 ? null : url.slice(idx + marker.length);
+}
+
+async function deleteImageByUrl(url){
+  var path = storagePathFromUrl(url);
+  if(!path || !supabaseConfigured) return;
+  await sb.storage.from(IMAGE_BUCKET).remove([path]);
+}
+
+// Draws whatever's at `src` (a freshly picked file's data URL, or an
+// already uploaded Storage URL) onto a canvas capped at maxDim, and
+// resolves with a compressed Blob. crossOrigin is set so reprocessing an
+// already uploaded image (e.g. building a thumbnail from a full size
+// Storage URL) doesn't taint the canvas.
+function imageSrcToBlob(src, maxDim, mime, quality){
+  return new Promise(function(resolve){
+    var img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = function(){
+      var scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+      var w = Math.round(img.width * scale);
+      var h = Math.round(img.height * scale);
+      var canvas = document.createElement('canvas');
+      canvas.width = w;
+      canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      canvas.toBlob(function(blob){ resolve(blob); }, mime, quality);
+    };
+    img.onerror = function(){ resolve(null); };
+    img.src = src;
+  });
+}
+
+// Resizes a freshly picked File and uploads it to Storage; resolves with
+// the public URL (or null on failure). This is the Storage backed
+// replacement for resizeImageToDataUrl() used by every real composer.
+// `forceJpeg` (used for thumbnails) skips the "keep PNGs as PNG" rule -
+// thumbnails are tiny grid previews where file size matters more than
+// preserving transparency, so they're always compressed as JPEG.
+async function resizeFileToStorageUrl(file, maxDim, folder, forceJpeg){
+  var isPng = !forceJpeg && file.type.indexOf('png') > -1;
+  var dataUrl = await new Promise(function(resolve){
+    var reader = new FileReader();
+    reader.onload = function(ev){ resolve(ev.target.result); };
+    reader.readAsDataURL(file);
+  });
+  var blob = await imageSrcToBlob(dataUrl, maxDim, isPng ? 'image/png' : 'image/jpeg', 0.85);
+  if(!blob) return null;
+  return uploadImageBlob(blob, folder, isPng ? 'png' : 'jpg');
+}
+
+// Regenerates a small JPEG thumbnail from an already uploaded full size
+// Storage URL and uploads that too, resolving with its public URL.
+async function makeThumbnailAtUrl(src, maxDim, folder){
+  var blob = await imageSrcToBlob(src, maxDim, 'image/jpeg', 0.8);
+  if(!blob) return null;
+  return uploadImageBlob(blob, folder, 'jpg');
+}
+
+document.getElementById('artImageInput').addEventListener('change', async function(e){
   var file = e.target.files[0];
   if(!file) return;
   composerArtImageName = file.name;
-  resizeImageToDataUrl(file, 800, function(dataUrl){
-    composerArtImageData = dataUrl;
-    document.getElementById('artImagePreview').src = composerArtImageData;
-    document.getElementById('artImagePreviewWrap').style.display = 'block';
-  });
+  var previewUrl = URL.createObjectURL(file); // instant local preview while the real upload is in flight
+  document.getElementById('artImagePreview').src = previewUrl;
+  document.getElementById('artImagePreviewWrap').style.display = 'block';
+  var uploadedUrl = await resizeFileToStorageUrl(file, 800, 'art');
+  if(uploadedUrl){
+    composerArtImageData = uploadedUrl;
+    document.getElementById('artImagePreview').src = uploadedUrl;
+  }
+  URL.revokeObjectURL(previewUrl);
   // small JPEG for the gallery grid, generated alongside the full size image
-  resizeImageToDataUrl(file, 320, function(dataUrl){
-    composerArtThumbData = dataUrl;
-  }, true);
+  composerArtThumbData = await resizeFileToStorageUrl(file, 320, 'art', true);
 });
 
 document.getElementById('removeArtImage').addEventListener('click', function(){
@@ -5265,9 +5471,7 @@ document.getElementById('publishArtBtn').addEventListener('click', async functio
   // covers editing an older piece that has an image but no thumbnail yet,
   // without picking a new file every save ends up with a thumbnail
   if(!composerArtThumbData && composerArtImageData){
-    composerArtThumbData = await new Promise(function(resolve){
-      resizeDataUrlToThumbnail(composerArtImageData, 320, resolve);
-    });
+    composerArtThumbData = await makeThumbnailAtUrl(composerArtImageData, 320, 'art');
   }
 
   var btn = this;
@@ -5336,12 +5540,16 @@ async function deleteArtPiece(id){
   var numId = parseInt(id, 10);
 
   if(supabaseConfigured && numId > 0){
-    var result = await sb.from('art_pieces').delete().eq('id', numId);
-    if(result.error){
-      console.error('Delete failed:', result.error);
+    // .select() so the deleted row's image_data/thumbnail_data come back
+    // with it, letting us also clean up their Storage objects below
+    var result = await sb.from('art_pieces').delete().eq('id', numId).select();
+    if(result.error || !result.data || !result.data.length){
+      console.error('Delete failed:', result.error || 'no row was actually deleted (blocked by RLS?)');
       await showAlert('Delete failed, sorry auntie :< try again');
       return;
     }
+    await deleteImageByUrl(result.data[0].image_data);
+    await deleteImageByUrl(result.data[0].thumbnail_data);
   }
 
   artPieces = artPieces.filter(function(p){ return p.id != id; });
@@ -5600,11 +5808,9 @@ async function loadOcs(){
 document.getElementById('ocImageInput').addEventListener('change', function(e){
   var files = Array.from(e.target.files || []);
   if(!files.length) return;
-  files.forEach(function(file){
-    resizeImageToDataUrl(file, 900, function(dataUrl){
-      composerOcImages.push(dataUrl);
-      renderOcImagePreviews();
-    });
+  files.forEach(async function(file){
+    var url = await resizeFileToStorageUrl(file, 900, 'oc');
+    if(url){ composerOcImages.push(url); renderOcImagePreviews(); }
   });
   e.target.value = '';
 });
@@ -5653,14 +5859,18 @@ document.getElementById('ocTagInput').addEventListener('keydown', function(e){
   if(e.key === 'Enter'){ e.preventDefault(); addOcTagFromInput(); }
 });
 
-document.getElementById('ocTalkAvatarInput').addEventListener('change', function(e){
+document.getElementById('ocTalkAvatarInput').addEventListener('change', async function(e){
   var file = e.target.files[0];
   if(!file) return;
-  resizeImageToDataUrl(file, 300, function(dataUrl){
-    composerOcTalkAvatar = dataUrl;
-    document.getElementById('ocTalkAvatarPreview').src = composerOcTalkAvatar;
-    document.getElementById('ocTalkAvatarPreviewWrap').style.display = 'block';
-  });
+  var previewUrl = URL.createObjectURL(file); // instant local preview while the real upload is in flight
+  document.getElementById('ocTalkAvatarPreview').src = previewUrl;
+  document.getElementById('ocTalkAvatarPreviewWrap').style.display = 'block';
+  var uploadedUrl = await resizeFileToStorageUrl(file, 300, 'oc');
+  if(uploadedUrl){
+    composerOcTalkAvatar = uploadedUrl;
+    document.getElementById('ocTalkAvatarPreview').src = uploadedUrl;
+  }
+  URL.revokeObjectURL(previewUrl);
 });
 document.getElementById('removeOcTalkAvatar').addEventListener('click', function(){
   composerOcTalkAvatar = null;
@@ -5921,12 +6131,17 @@ async function deleteOc(id){
   var numId = parseInt(id, 10);
 
   if(supabaseConfigured && numId > 0){
-    var result = await sb.from('oc_characters').delete().eq('id', numId);
-    if(result.error){
-      console.error('Delete failed:', result.error);
+    // .select() so the deleted row's images/talk_avatar come back with
+    // it, letting us also clean up their Storage objects below
+    var result = await sb.from('oc_characters').delete().eq('id', numId).select();
+    if(result.error || !result.data || !result.data.length){
+      console.error('Delete failed:', result.error || 'no row was actually deleted (blocked by RLS?)');
       await showAlert('Delete failed — check the console for details.');
       return;
     }
+    var deletedOc = result.data[0];
+    await Promise.all((deletedOc.images || []).map(deleteImageByUrl));
+    await deleteImageByUrl(deletedOc.talk_avatar);
   }
 
   ocs = ocs.filter(function(o){ return o.id != id; });
@@ -7396,8 +7611,8 @@ document.addEventListener('click', function(e){
 });
 
 // Grabs a single frame from a video File (seeked to 1s in, or the midpoint
-// for very short clips) and hands it back as a JPEG data URL — used as the
-// automatic thumbnail when the admin doesn't upload their own.
+// for very short clips), uploads it to Storage, and hands back its public
+// URL — used as the automatic thumbnail when the admin doesn't upload their own.
 function captureVideoFrame(file, callback){
   var url = URL.createObjectURL(file);
   var videoEl = document.createElement('video');
@@ -7413,7 +7628,9 @@ function captureVideoFrame(file, callback){
     canvas.height = videoEl.videoHeight || 270;
     canvas.getContext('2d').drawImage(videoEl, 0, 0, canvas.width, canvas.height);
     URL.revokeObjectURL(url);
-    callback(canvas.toDataURL('image/jpeg', 0.85));
+    canvas.toBlob(async function(blob){
+      callback(blob ? await uploadImageBlob(blob, 'archive-video-thumb', 'jpg') : null);
+    }, 'image/jpeg', 0.85);
   });
   videoEl.addEventListener('error', function(){ URL.revokeObjectURL(url); });
 }
@@ -7533,7 +7750,7 @@ function exitArchiveVideoBatchMode(){
 }
 
 // video files upload to Storage as is; only the (optional) thumbnail goes
-// through the existing resizeImageToDataUrl() image pipeline
+// through the resizeFileToStorageUrl() image pipeline
 document.getElementById('archiveVideoFileInput').addEventListener('change', function(e){
   var files = Array.from(e.target.files || []);
   if(!files.length) return;
@@ -7574,9 +7791,9 @@ document.getElementById('archiveVideoFileInput').addEventListener('change', func
 document.getElementById('archiveVideoThumbInput').addEventListener('change', function(e){
   var file = e.target.files[0];
   if(!file) return;
-  resizeImageToDataUrl(file, 500, function(dataUrl){
-    composerVideoThumbData = dataUrl;
-    document.getElementById('archiveVideoThumbPreview').src = dataUrl;
+  resizeFileToStorageUrl(file, 500, 'archive-video-thumb').then(function(uploadedUrl){
+    composerVideoThumbData = uploadedUrl;
+    document.getElementById('archiveVideoThumbPreview').src = uploadedUrl;
     document.getElementById('archiveVideoThumbPreviewWrap').style.display = 'block';
   });
 });
@@ -7816,6 +8033,7 @@ document.getElementById('archiveVideoBulkDeleteBtn').addEventListener('click', a
         if(video && video.video_path){
           await sb.storage.from('archive-videos').remove([video.video_path]);
         }
+        if(video){ await deleteImageByUrl(video.thumbnail_data); }
         // .select() so an RLS blocked delete (0 rows, no error) shows up as empty data, not a false success
         var result = await sb.from('archive_videos').delete().eq('id', numId).select();
         if(result.error || !result.data || !result.data.length){
@@ -8090,6 +8308,7 @@ async function deleteArchiveVideo(id){
     if(video && video.video_path){
       await sb.storage.from('archive-videos').remove([video.video_path]);
     }
+    if(video){ await deleteImageByUrl(video.thumbnail_data); }
     // .select() so a delete silently blocked by RLS (0 rows matched, no error
     // thrown) comes back as an empty array instead of looking like a success
     var result = await sb.from('archive_videos').delete().eq('id', numId).select();
@@ -8260,15 +8479,20 @@ document.getElementById('archiveArtworkImageInput').addEventListener('change', f
   exitArchiveArtworkBatchMode();
   var file = files[0];
   composerArtworkImageName = file.name;
-  resizeImageToDataUrl(file, 900, function(dataUrl){
-    composerArtworkImageData = dataUrl;
-    document.getElementById('archiveArtworkImagePreview').src = dataUrl;
-    document.getElementById('archiveArtworkImagePreviewWrap').style.display = 'block';
+  var previewUrl = URL.createObjectURL(file); // instant local preview while the real upload is in flight
+  document.getElementById('archiveArtworkImagePreview').src = previewUrl;
+  document.getElementById('archiveArtworkImagePreviewWrap').style.display = 'block';
+  resizeFileToStorageUrl(file, 900, 'archive-art').then(function(uploadedUrl){
+    if(uploadedUrl){
+      composerArtworkImageData = uploadedUrl;
+      document.getElementById('archiveArtworkImagePreview').src = uploadedUrl;
+    }
+    URL.revokeObjectURL(previewUrl);
   });
   // small JPEG for the gallery grid, generated alongside the full size image
-  resizeImageToDataUrl(file, 320, function(dataUrl){
-    composerArtworkThumbData = dataUrl;
-  }, true);
+  resizeFileToStorageUrl(file, 320, 'archive-art', true).then(function(uploadedThumbUrl){
+    composerArtworkThumbData = uploadedThumbUrl;
+  });
 });
 document.getElementById('removeArchiveArtworkImage').addEventListener('click', function(){
   composerArtworkImageData = null;
@@ -8512,6 +8736,8 @@ document.getElementById('archiveArtworkBulkDeleteBtn').addEventListener('click',
           failures++;
           continue;
         }
+        await deleteImageByUrl(result.data[0].image_data);
+        await deleteImageByUrl(result.data[0].thumbnail_data);
       }
       archiveArtwork = archiveArtwork.filter(function(a){ return a.id != numId; });
     } catch(err){
@@ -8710,9 +8936,7 @@ document.getElementById('publishArchiveArtworkBtn').addEventListener('click', as
   // covers editing an older piece that has an image but no thumbnail yet,
   // without picking a new file every save ends up with a thumbnail
   if(!composerArtworkThumbData && composerArtworkImageData){
-    composerArtworkThumbData = await new Promise(function(resolve){
-      resizeDataUrlToThumbnail(composerArtworkImageData, 320, resolve);
-    });
+    composerArtworkThumbData = await makeThumbnailAtUrl(composerArtworkImageData, 320, 'archive-art');
   }
 
   var btn = this;
@@ -8774,8 +8998,9 @@ document.getElementById('publishArchiveArtworkBtn').addEventListener('click', as
 // row. filename derived title, no description, the same shared
 // composerArtworkTags applied to all of them. Keeps going past a failed file
 // instead of aborting the whole batch, and reports failures at the end.
-// Supports the same local only fallback as the single item path since
-// artwork (unlike video) never needs Supabase Storage.
+// Supports the same local only fallback as the single item path for the
+// row itself; the image/thumbnail uploads (resizeFileToStorageUrl) just
+// resolve to null when Supabase isn't configured, same as everywhere else.
 async function publishArchiveArtworkBatch(){
   var files = composerArtworkBatchFiles;
   var sequential = composerArtworkBatchSequential;
@@ -8795,8 +9020,8 @@ async function publishArchiveArtworkBatch(){
     var file = files[i];
     btn.textContent = 'Uploading ' + (i + 1) + ' of ' + files.length + '...';
     try{
-      var dataUrl = await new Promise(function(resolve){ resizeImageToDataUrl(file, 900, resolve); });
-      var thumbUrl = await new Promise(function(resolve){ resizeImageToDataUrl(file, 320, resolve, true); });
+      var dataUrl = await resizeFileToStorageUrl(file, 900, 'archive-art');
+      var thumbUrl = await resizeFileToStorageUrl(file, 320, 'archive-art', true);
       var fields = {
         title: sequential ? (seriesTitle + ' (' + (i + 1) + '/' + files.length + ')') : titleFromFilename(file.name),
         description: '',
@@ -8843,6 +9068,8 @@ async function deleteArchiveArtwork(id){
       await showAlert('Delete failed, sorry auntie :< try again');
       return;
     }
+    await deleteImageByUrl(result.data[0].image_data);
+    await deleteImageByUrl(result.data[0].thumbnail_data);
   }
 
   archiveArtwork = archiveArtwork.filter(function(a){ return a.id != id; });
@@ -8954,135 +9181,111 @@ loadArchiveArtwork();
   });
 })();
 
-// Commission price calculator
-(function(){
-  var PRICING = {
-    ongezellig: {
-      label: '"Ongezellig" style',
-      fullColor: { full: 50, hips: 40, bust: 35 },
-      lineArt:   { full: 30, hips: 25, bust: 20 },
-      simpleBg: 5,
-      complexBg: 10
-    },
-    own: {
-      label: 'Own style',
-      fullColor: { full: 80, hips: 70, bust: 65 },
-      lineArt:   { full: 50, hips: 40, bust: 35 },
-      simpleBg: 5,
-      complexBg: 10
-    },
-    pixel: {
-      label: 'Pixel art (sort of)',
-      fullColor: { full: 60, hips: 50, bust: 45 },
-      lineArt:   { full: 25, hips: 20, bust: 15 },
-      simpleBg: 10,
-      complexBg: 20
-    }
-  };
-  var COVERAGE_LABELS = { full: 'full body', hips: 'head to hips', bust: 'head & bust' };
+// Commission price calculator. Reads from the shared PRICING object
+// (declared up near `state`/BOARD_ROW_ID, fed by loadPricingFromSupabase()
+// and by the admin pricing editor) rather than owning its own copy, so an
+// admin edit anywhere recalculates this too - see runCommissionCalculator()
+// calls in savePricingChanges() and loadPricingFromSupabase().
+var calcStyleSelect = document.getElementById('calcStyle');
+var calcColorTypeSelect = document.getElementById('calcColorType');
+var calcCoverageSelect = document.getElementById('calcCoverage');
+var calcBackgroundSelect = document.getElementById('calcBackground');
+var calcBackgroundHint = document.getElementById('calcBackgroundHint');
+var calcExtraWrap = document.getElementById('calcExtraCharacters');
+var calcAddCharacterBtn = document.getElementById('calcAddCharacterBtn');
+var calcBreakdownEl = document.getElementById('calcBreakdown');
+var calcTotalEl = document.getElementById('calcTotalNum');
 
-  var styleSelect = document.getElementById('calcStyle');
-  var colorTypeSelect = document.getElementById('calcColorType');
-  var coverageSelect = document.getElementById('calcCoverage');
-  var backgroundSelect = document.getElementById('calcBackground');
-  var backgroundHint = document.getElementById('calcBackgroundHint');
-  var extraWrap = document.getElementById('calcExtraCharacters');
-  var addCharacterBtn = document.getElementById('calcAddCharacterBtn');
-  var breakdownEl = document.getElementById('calcBreakdown');
-  var totalEl = document.getElementById('calcTotalNum');
-  if(!styleSelect) return; // calculator isn't on this page
+var calcExtraCharacters = []; // one entry per extra character
 
-  var extraCharacters = []; // one entry per extra character
+function formatMoney(n){
+  var rounded = Math.round(n * 100) / 100;
+  return '$' + (rounded % 1 === 0 ? rounded.toFixed(0) : rounded.toFixed(2));
+}
 
-  function money(n){
-    var rounded = Math.round(n * 100) / 100;
-    return '$' + (rounded % 1 === 0 ? rounded.toFixed(0) : rounded.toFixed(2));
-  }
+function commissionBasePrice(styleKey, colorType, coverage){
+  var tier = colorType === 'lineArt' ? PRICING[styleKey].lineArt : PRICING[styleKey].fullColor;
+  return tier[coverage];
+}
+function updateCalcBackgroundOptions(){
+  var isLineArt = calcColorTypeSelect.value === 'lineArt';
+  calcBackgroundSelect.querySelector('option[value="simple"]').disabled = isLineArt;
+  calcBackgroundSelect.querySelector('option[value="complex"]').disabled = isLineArt;
+  if(isLineArt && calcBackgroundSelect.value !== 'none'){ calcBackgroundSelect.value = 'none'; }
+  calcBackgroundHint.style.display = isLineArt ? 'block' : 'none';
+}
 
-  function basePrice(styleKey, colorType, coverage){
-    var tier = colorType === 'lineArt' ? PRICING[styleKey].lineArt : PRICING[styleKey].fullColor;
-    return tier[coverage];
-  }
-  function updateBackgroundOptions(){
-    var isLineArt = colorTypeSelect.value === 'lineArt';
-    backgroundSelect.querySelector('option[value="simple"]').disabled = isLineArt;
-    backgroundSelect.querySelector('option[value="complex"]').disabled = isLineArt;
-    if(isLineArt && backgroundSelect.value !== 'none'){ backgroundSelect.value = 'none'; }
-    backgroundHint.style.display = isLineArt ? 'block' : 'none';
-  }
+function renderCalcExtraCharacters(){
+  calcExtraWrap.innerHTML = calcExtraCharacters.map(function(character, i){
+    return '<div class="calc-extra-character-row">' +
+        '<span class="calc-extra-character-label">Character ' + (i + 2) + '</span>' +
+        '<select class="blog-filter-select calc-extra-coverage" data-index="' + i + '">' +
+          '<option value="full"' + (character.coverage === 'full' ? ' selected' : '') + '>Full body</option>' +
+          '<option value="hips"' + (character.coverage === 'hips' ? ' selected' : '') + '>Head to hips</option>' +
+          '<option value="bust"' + (character.coverage === 'bust' ? ' selected' : '') + '>Head &amp; bust</option>' +
+        '</select>' +
+        '<button type="button" class="calc-remove-character-btn" data-index="' + i + '" aria-label="Remove character">&times;</button>' +
+      '</div>';
+  }).join('');
 
-  function renderExtraCharacters(){
-    extraWrap.innerHTML = extraCharacters.map(function(character, i){
-      return '<div class="calc-extra-character-row">' +
-          '<span class="calc-extra-character-label">Character ' + (i + 2) + '</span>' +
-          '<select class="blog-filter-select calc-extra-coverage" data-index="' + i + '">' +
-            '<option value="full"' + (character.coverage === 'full' ? ' selected' : '') + '>Full body</option>' +
-            '<option value="hips"' + (character.coverage === 'hips' ? ' selected' : '') + '>Head to hips</option>' +
-            '<option value="bust"' + (character.coverage === 'bust' ? ' selected' : '') + '>Head &amp; bust</option>' +
-          '</select>' +
-          '<button type="button" class="calc-remove-character-btn" data-index="' + i + '" aria-label="Remove character">&times;</button>' +
-        '</div>';
-    }).join('');
-
-    extraWrap.querySelectorAll('.calc-extra-coverage').forEach(function(select){
-      select.addEventListener('change', function(){
-        extraCharacters[Number(select.dataset.index)].coverage = select.value;
-        runCalculation();
-      });
+  calcExtraWrap.querySelectorAll('.calc-extra-coverage').forEach(function(select){
+    select.addEventListener('change', function(){
+      calcExtraCharacters[Number(select.dataset.index)].coverage = select.value;
+      runCommissionCalculator();
     });
-    extraWrap.querySelectorAll('.calc-remove-character-btn').forEach(function(btn){
-      btn.addEventListener('click', function(){
-        extraCharacters.splice(Number(btn.dataset.index), 1);
-        renderExtraCharacters();
-        runCalculation();
-      });
-    });
-  }
-
-  function runCalculation(){
-    updateBackgroundOptions();
-
-    var styleKey = styleSelect.value;
-    var style = PRICING[styleKey];
-    var colorType = colorTypeSelect.value;
-    var coverage = coverageSelect.value;
-    var background = backgroundSelect.value;
-    var bgCost = background === 'simple' ? style.simpleBg : background === 'complex' ? style.complexBg : 0;
-
-    var rows = [{
-      label: style.label + ', ' + (colorType === 'lineArt' ? 'line art' : 'full color') + ', ' + COVERAGE_LABELS[coverage],
-      amount: basePrice(styleKey, colorType, coverage)
-    }];
-    var total = rows[0].amount;
-
-    extraCharacters.forEach(function(character, i){
-      var amount = basePrice(styleKey, colorType, character.coverage) / 2;
-      rows.push({ label: 'Extra character ' + (i + 2) + ' (' + COVERAGE_LABELS[character.coverage] + ')', amount: amount });
-      total += amount;
-    });
-
-    if(bgCost > 0){
-      rows.push({ label: (background === 'simple' ? 'Simple' : 'Complex') + ' background', amount: bgCost });
-      total += bgCost;
-    }
-
-    breakdownEl.innerHTML = rows.map(function(row){
-      return '<div class="calc-breakdown-row"><span>' + row.label + '</span><span>' + money(row.amount) + '</span></div>';
-    }).join('');
-    totalEl.textContent = money(total);
-  }
-
-  [styleSelect, colorTypeSelect, coverageSelect, backgroundSelect].forEach(function(select){
-    select.addEventListener('change', runCalculation);
   });
-  addCharacterBtn.addEventListener('click', function(){
-    extraCharacters.push({ coverage: 'full' });
-    renderExtraCharacters();
-    runCalculation();
+  calcExtraWrap.querySelectorAll('.calc-remove-character-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      calcExtraCharacters.splice(Number(btn.dataset.index), 1);
+      renderCalcExtraCharacters();
+      runCommissionCalculator();
+    });
+  });
+}
+
+function runCommissionCalculator(){
+  updateCalcBackgroundOptions();
+
+  var styleKey = calcStyleSelect.value;
+  var style = PRICING[styleKey];
+  var colorType = calcColorTypeSelect.value;
+  var coverage = calcCoverageSelect.value;
+  var background = calcBackgroundSelect.value;
+  var bgCost = background === 'simple' ? style.simpleBg : background === 'complex' ? style.complexBg : 0;
+
+  var rows = [{
+    label: style.label + ', ' + (colorType === 'lineArt' ? 'line art' : 'full color') + ', ' + COVERAGE_LABELS[coverage],
+    amount: commissionBasePrice(styleKey, colorType, coverage)
+  }];
+  var total = rows[0].amount;
+
+  calcExtraCharacters.forEach(function(character, i){
+    var amount = commissionBasePrice(styleKey, colorType, character.coverage) / 2;
+    rows.push({ label: 'Extra character ' + (i + 2) + ' (' + COVERAGE_LABELS[character.coverage] + ')', amount: amount });
+    total += amount;
   });
 
-  runCalculation();
-})();
+  if(bgCost > 0){
+    rows.push({ label: (background === 'simple' ? 'Simple' : 'Complex') + ' background', amount: bgCost });
+    total += bgCost;
+  }
+
+  calcBreakdownEl.innerHTML = rows.map(function(row){
+    return '<div class="calc-breakdown-row"><span>' + row.label + '</span><span>' + formatMoney(row.amount) + '</span></div>';
+  }).join('');
+  calcTotalEl.textContent = formatMoney(total);
+}
+
+[calcStyleSelect, calcColorTypeSelect, calcCoverageSelect, calcBackgroundSelect].forEach(function(select){
+  select.addEventListener('change', runCommissionCalculator);
+});
+calcAddCharacterBtn.addEventListener('click', function(){
+  calcExtraCharacters.push({ coverage: 'full' });
+  renderCalcExtraCharacters();
+  runCommissionCalculator();
+});
+
+runCommissionCalculator();
 </script>
 </body>
 </html>
