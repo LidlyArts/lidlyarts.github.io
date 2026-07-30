@@ -4212,6 +4212,20 @@ document.getElementById('adminPassword').addEventListener('input', function(e){
   passwordEasterEgg.style.display = 'block';
 });
 
+var ADMIN_LOGIN_RICKROLL_URL = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+var ADMIN_LOGIN_FAILS_KEY = 'adminLoginFails';
+var ADMIN_LOGIN_MAX_ATTEMPTS = 5;
+
+async function getVisitorIp(){
+  try{
+    var res = await fetch('https://api.ipify.org?format=json');
+    var data = await res.json();
+    return data.ip || null;
+  } catch(e){
+    return null;
+  }
+}
+
 // Real login,, this calls Supabases actual auth system (not a homemade
 // password check), so the real security check happens on Supabases servers,
 // not in this JS. isAdminAuthed below is just a UI flag for showing/hiding
@@ -4228,6 +4242,16 @@ document.getElementById('loginBtn').addEventListener('click', async function(){
   }
   warningEl.style.display = 'none';
 
+  var visitorIp = await getVisitorIp();
+
+  if(visitorIp){
+    var banCheck = await sb.rpc('is_ip_banned', { p_ip: visitorIp });
+    if(banCheck.data === true){
+      window.location.href = ADMIN_LOGIN_RICKROLL_URL;
+      return;
+    }
+  }
+
   var loginBtn = document.getElementById('loginBtn');
   var original = loginBtn.textContent;
   loginBtn.textContent = 'Logging in...';
@@ -4237,10 +4261,21 @@ document.getElementById('loginBtn').addEventListener('click', async function(){
   loginBtn.textContent = original;
 
   if(result.error){
+    var loginFails = parseInt(localStorage.getItem(ADMIN_LOGIN_FAILS_KEY) || '0', 10) + 1;
+    if(loginFails >= ADMIN_LOGIN_MAX_ATTEMPTS){
+      localStorage.removeItem(ADMIN_LOGIN_FAILS_KEY);
+      if(visitorIp){
+        await sb.rpc('ban_ip', { p_ip: visitorIp });
+      }
+      window.location.href = ADMIN_LOGIN_RICKROLL_URL;
+      return;
+    }
+    localStorage.setItem(ADMIN_LOGIN_FAILS_KEY, String(loginFails));
     errorEl.style.display = 'block';
     return;
   }
 
+  localStorage.removeItem(ADMIN_LOGIN_FAILS_KEY);
   errorEl.style.display = 'none';
   document.getElementById('adminLoggedOut').style.display = 'none';
   document.getElementById('adminLoggedIn').style.display = 'block';
