@@ -1838,7 +1838,6 @@ input[type=text], input[type=password], input[type=number]{
   border:1px solid rgba(0,0,0,0.1);
   border-radius:12px;
   padding:24px 26px;
-  max-width:520px;
   margin-bottom:36px;
 }
 .tag-chip-row{
@@ -1859,9 +1858,9 @@ input[type=text], input[type=password], input[type=number]{
   cursor:pointer;
 }
 .tag-chip.selected{
-  background:var(--sage);
+  background:var(--chip-color, var(--sage));
   color:var(--card);
-  border-color:var(--sage);
+  border-color:var(--chip-color, var(--sage));
 }
 .tag-chip-marked-remove{
   background:var(--danger);
@@ -1925,6 +1924,221 @@ input[type=text], input[type=password], input[type=number]{
   cursor:pointer;
 }
 .pin-checkbox input{ width:16px; height:16px; }
+
+.rte-draft-banner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  font-family:'Work Sans', sans-serif;
+  font-size:13px;
+  color:var(--ink-light);
+  background:var(--sage-light);
+  border-radius:10px;
+  padding:10px 14px;
+  margin:6px 0 14px;
+}
+.rte-draft-banner button{
+  font-family:'Work Sans', sans-serif;
+  font-size:12px;
+  font-weight:600;
+  color:var(--ink);
+  background:none;
+  border:none;
+  text-decoration:underline;
+  cursor:pointer;
+  flex-shrink:0;
+  padding:0;
+}
+.rte-wrap{
+  border:1.5px solid rgba(0,0,0,0.22);
+  border-radius:14px;
+  overflow:visible;
+  background:#fff;
+  margin-bottom:8px;
+  transition:border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.rte-wrap:focus-within{
+  border-color:var(--sage);
+  box-shadow:0 0 0 3px var(--sage-light);
+}
+.rte-toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:2px;
+  padding:8px;
+  background:var(--paper);
+  border-radius:12px 12px 0 0;
+  border-bottom:1.5px solid rgba(0,0,0,0.22);
+  position:relative;
+}
+.rte-group{
+  display:flex;
+  align-items:center;
+  gap:2px;
+  padding:0 6px;
+  border-right:1px solid rgba(0,0,0,0.12);
+  position:relative;
+}
+.rte-group:last-child{ border-right:none; }
+.rte-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:30px;
+  height:30px;
+  padding:0;
+  border:none;
+  border-radius:7px;
+  background:transparent;
+  color:var(--charcoal);
+  cursor:pointer;
+  flex-shrink:0;
+  transition:background 0.15s ease, color 0.15s ease;
+}
+.rte-btn svg{ display:block; width:16px; height:16px; }
+.rte-btn:hover{ background:rgba(0,0,0,0.08); }
+.rte-btn.active{ background:var(--sage); color:#fff; }
+.rte-select{
+  font-family:'Work Sans', sans-serif;
+  font-size:12.5px;
+  font-weight:500;
+  color:var(--charcoal);
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.18);
+  border-radius:7px;
+  padding:5px 4px;
+  cursor:pointer;
+  max-width:100px;
+}
+.rte-font-select{ max-width:140px; }
+.rte-color-letter{
+  font-family:'Work Sans', sans-serif;
+  font-weight:700;
+  font-size:14px;
+  line-height:1;
+}
+.rte-color-bar{
+  display:block;
+  width:16px;
+  height:3px;
+  border-radius:2px;
+  margin:3px auto 0;
+  background:var(--charcoal);
+}
+.rte-emoji-icon{ font-size:15px; line-height:1; }
+.rte-popover{
+  position:absolute;
+  top:100%;
+  left:0;
+  margin-top:6px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.15);
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.18);
+  padding:12px;
+  z-index:20;
+  width:196px;
+}
+.rte-swatch-grid{
+  display:grid;
+  grid-template-columns:repeat(6, 1fr);
+  gap:7px;
+  margin-bottom:10px;
+}
+.rte-swatch{
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  border:2px solid rgba(0,0,0,0.15);
+  cursor:pointer;
+  padding:0;
+}
+.rte-swatch:hover{ transform:scale(1.15); }
+.rte-swatch-none{
+  background:#fff;
+  background-image:linear-gradient(45deg, transparent 46%, var(--danger) 48%, var(--danger) 52%, transparent 54%);
+}
+.rte-custom-color-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  font-family:'JetBrains Mono', monospace;
+  font-size:11px;
+  color:var(--ink-light);
+  border-top:1px solid rgba(0,0,0,0.1);
+  padding-top:10px;
+}
+.rte-custom-color-row input[type=color]{
+  width:34px;
+  height:26px;
+  padding:0;
+  border:1px solid rgba(0,0,0,0.2);
+  border-radius:6px;
+  cursor:pointer;
+  background:none;
+}
+.rte-emoji-popover{
+  width:212px;
+  display:grid;
+  grid-template-columns:repeat(7, 1fr);
+  gap:4px;
+  max-height:180px;
+  overflow-y:auto;
+}
+.rte-emoji-popover button{
+  border:none;
+  background:none;
+  font-size:18px;
+  line-height:1;
+  padding:5px;
+  border-radius:6px;
+  cursor:pointer;
+}
+.rte-emoji-popover button:hover{ background:rgba(0,0,0,0.08); }
+.rte-editor{
+  width:100%;
+  min-width:200px;
+  min-height:160px;
+  padding:16px 18px;
+  font-family:'Work Sans', sans-serif;
+  font-size:15px;
+  line-height:1.6;
+  color:var(--charcoal);
+  overflow-y:auto;
+  resize:vertical;
+  outline:none;
+  box-sizing:border-box;
+  border-radius:0 0 12px 12px;
+}
+.rte-editor:empty:before{
+  content:attr(data-placeholder);
+  color:rgba(0,0,0,0.38);
+  pointer-events:none;
+}
+.rte-content p{ margin:0 0 12px; }
+.rte-content p:last-child{ margin-bottom:0; }
+.rte-content ul, .rte-content ol{ margin:0 0 12px; padding-left:22px; }
+.rte-content li{ margin:0 0 4px; }
+.rte-content blockquote{
+  margin:0 0 12px;
+  padding:2px 0 2px 14px;
+  border-left:3px solid var(--sage);
+  color:var(--ink-light);
+  font-style:italic;
+}
+.rte-content a{ color:var(--sage); text-decoration:underline; text-underline-offset:2px; }
+.rte-content a:hover{ color:var(--mustard-dark); }
+.rte-content{ white-space:normal; overflow-wrap:anywhere; }
+.rte-count{
+  font-family:'JetBrains Mono', monospace;
+  font-size:11px;
+  color:var(--ink-light);
+  text-align:right;
+  margin:0 0 4px;
+}
 
 .blog-filter-row{
   display:flex;
@@ -2697,6 +2911,13 @@ input.archive-search-input{
   .site-footer{ padding:24px 20px 28px; margin-top:40px; }
 
   .blog-composer{ padding:18px; max-width:100%; }
+  .rte-toolbar{ padding:6px; gap:1px; }
+  .rte-group{ padding:0 4px; }
+  .rte-btn{ width:28px; height:28px; }
+  .rte-select{ font-size:12px; padding:4px 3px; max-width:78px; }
+  .rte-font-select{ max-width:94px; }
+  .rte-popover{ width:176px; }
+  .rte-emoji-popover{ width:194px; grid-template-columns:repeat(6,1fr); }
   .blog-post-title{ font-size:22px; }
   .blog-post-body-wrap{ padding:16px 18px 0; }
   .blog-empty-note{ font-size:18px; }
@@ -2815,7 +3036,7 @@ input.archive-search-input{
         <h2 class="art-modal-title" id="blogModalTitle"></h2>
         <p class="art-modal-meta" id="blogModalMeta"></p>
         <div class="blog-post-tags" id="blogModalTags"></div>
-        <p class="art-modal-text" id="blogModalText"></p>
+        <div class="art-modal-text rte-content" id="blogModalText"></div>
         <div class="blog-reactions" id="blogModalReactions"></div>
         <div class="blog-admin-actions" id="blogModalAdminActions" style="display:none; margin-top:14px;">
           <button class="blog-pin-btn blog-icon-btn" id="blogModalPinBtn" title="Pin" aria-label="Pin"></button>
@@ -3444,7 +3665,100 @@ input.archive-search-input{
       <div class="blog-image-preview-grid" id="blogImagePreviewGrid"></div>
 
       <p class="field-label" style="margin-top:14px;">post</p>
-      <textarea id="blogBodyInput" rows="5" placeholder="What's going on?"></textarea>
+      <div class="rte-draft-banner" id="blogDraftBanner" style="display:none;">
+        <span>What's going on Auntie?</span>
+        <button type="button" id="blogDraftDiscardBtn">Discard</button>
+      </div>
+      <div class="rte-wrap">
+        <div class="rte-toolbar" id="blogRteToolbar">
+          <div class="rte-group">
+            <button type="button" class="rte-btn" id="rteUndoBtn" title="Undo (Ctrl+Z)" aria-label="Undo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg>
+            </button>
+            <button type="button" class="rte-btn" id="rteRedoBtn" title="Redo (Ctrl+Y)" aria-label="Redo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14 20 9l-5-5"/><path d="M4 20v-7a4 4 0 0 1 4-4h12"/></svg>
+            </button>
+          </div>
+          <div class="rte-group">
+            <select class="rte-select rte-font-select" id="rteFontFamily" title="Font family" aria-label="Font family"></select>
+            <select class="rte-select" id="rteFontSize" title="Font size" aria-label="Font size"></select>
+          </div>
+          <div class="rte-group">
+            <button type="button" class="rte-btn" data-cmd="bold" title="Bold (Ctrl+B)" aria-label="Bold">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h6a4 4 0 0 1 0 8H6z"/><path d="M6 12h7a4 4 0 0 1 0 8H6z"/></svg>
+            </button>
+            <button type="button" class="rte-btn" data-cmd="italic" title="Italic (Ctrl+I)" aria-label="Italic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="4" x2="10" y2="4"/><line x1="14" y1="20" x2="5" y2="20"/><line x1="15" y1="4" x2="9" y2="20"/></svg>
+            </button>
+            <button type="button" class="rte-btn" data-cmd="underline" title="Underline (Ctrl+U)" aria-label="Underline">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4v6a6 6 0 0 0 12 0V4"/><line x1="4" y1="20" x2="20" y2="20"/></svg>
+            </button>
+            <button type="button" class="rte-btn" data-cmd="strikeThrough" title="Strikethrough" aria-label="Strikethrough">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"/><path d="M8 7c0-1.7 1.8-3 4-3s4 1.1 4 2.6c0 1.1-.8 1.9-1.9 2.3"/><path d="M8.6 15c-.4.5-.6 1.1-.6 1.7 0 1.7 1.8 3 4 3s4-1.2 4-3"/></svg>
+            </button>
+          </div>
+          <div class="rte-group">
+            <button type="button" class="rte-btn" id="rteForeColorBtn" title="Text color" aria-label="Text color">
+              <span class="rte-color-letter">A</span>
+              <span class="rte-color-bar" id="rteForeColorBar"></span>
+            </button>
+            <div class="rte-popover" id="rteForeColorPopover" style="display:none;">
+              <div class="rte-swatch-grid" id="rteForeColorSwatches"></div>
+              <div class="rte-custom-color-row">
+                custom
+                <input type="color" id="rteForeColorCustom" value="#2B2620">
+              </div>
+            </div>
+            <button type="button" class="rte-btn" id="rteHiliteColorBtn" title="Highlight color" aria-label="Highlight color">
+              <span class="rte-emoji-icon">🖍️</span>
+              <span class="rte-color-bar" id="rteHiliteColorBar" style="background:transparent;"></span>
+            </button>
+            <div class="rte-popover" id="rteHiliteColorPopover" style="display:none;">
+              <div class="rte-swatch-grid" id="rteHiliteColorSwatches"></div>
+              <div class="rte-custom-color-row">
+                custom
+                <input type="color" id="rteHiliteColorCustom" value="#FDE9A8">
+              </div>
+            </div>
+          </div>
+          <div class="rte-group">
+            <button type="button" class="rte-btn" data-cmd="justifyLeft" title="Align left" aria-label="Align left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="17" y2="18"/></svg>
+            </button>
+            <button type="button" class="rte-btn" data-cmd="justifyCenter" title="Align center" aria-label="Align center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="5.5" y1="18" x2="18.5" y2="18"/></svg>
+            </button>
+            <button type="button" class="rte-btn" data-cmd="justifyRight" title="Align right" aria-label="Align right">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="10" y1="12" x2="20" y2="12"/><line x1="7" y1="18" x2="20" y2="18"/></svg>
+            </button>
+          </div>
+          <div class="rte-group">
+            <button type="button" class="rte-btn" data-cmd="insertUnorderedList" title="Bullet list" aria-label="Bullet list">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="6" r="1.4" fill="currentColor"/><line x1="10" y1="6" x2="20" y2="6"/><circle cx="5" cy="12" r="1.4" fill="currentColor"/><line x1="10" y1="12" x2="20" y2="12"/><circle cx="5" cy="18" r="1.4" fill="currentColor"/><line x1="10" y1="18" x2="20" y2="18"/></svg>
+            </button>
+            <button type="button" class="rte-btn" data-cmd="insertOrderedList" title="Numbered list" aria-label="Numbered list">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="10" y1="6" x2="20" y2="6"/><line x1="10" y1="12" x2="20" y2="12"/><line x1="10" y1="18" x2="20" y2="18"/><text x="2" y="8.5" font-size="7" font-family="'JetBrains Mono', monospace" fill="currentColor" stroke="none">1</text><text x="2" y="14.5" font-size="7" font-family="'JetBrains Mono', monospace" fill="currentColor" stroke="none">2</text><text x="2" y="20.5" font-size="7" font-family="'JetBrains Mono', monospace" fill="currentColor" stroke="none">3</text></svg>
+            </button>
+            <button type="button" class="rte-btn" id="rteQuoteBtn" title="Quote block" aria-label="Quote block">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7c-2.5 0-4 2-4 4.5S4.5 16 7 16c.3 2-1 4-3 5"/><path d="M17 7c-2.5 0-4 2-4 4.5s1.5 4.5 4 4.5c.3 2-1 4-3 5"/></svg>
+            </button>
+          </div>
+          <div class="rte-group">
+            <button type="button" class="rte-btn" id="rteLinkBtn" title="Insert link (Ctrl+K)" aria-label="Insert link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 15 15 9"/><path d="M11 6l1.5-1.5a4 4 0 0 1 5.7 5.7L16.7 11.7"/><path d="M13 18l-1.5 1.5a4 4 0 0 1-5.7-5.7L7.3 12.3"/></svg>
+            </button>
+            <button type="button" class="rte-btn" id="rteUnlinkBtn" title="Remove link" aria-label="Remove link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 15 15 9"/><path d="M11 6l1-1a4 4 0 0 1 5.7 5.7l-1 1"/><path d="M13 18l-1 1a4 4 0 0 1-5.7-5.7l1-1"/><line x1="4" y1="4" x2="20" y2="20"/></svg>
+            </button>
+            <button type="button" class="rte-btn" id="rteEmojiBtn" title="Insert emoji" aria-label="Insert emoji">
+              <span class="rte-emoji-icon">😊</span>
+            </button>
+            <div class="rte-popover rte-emoji-popover" id="rteEmojiPopover" style="display:none;"></div>
+          </div>
+        </div>
+        <div class="rte-editor rte-content" id="blogBodyInput" contenteditable="true" data-placeholder="What's going on?" role="textbox" aria-multiline="true" aria-label="Post body"></div>
+      </div>
+      <p class="rte-count" id="blogRteCount">0 words · 0 characters</p>
 
       <label class="pin-checkbox">
         <input type="checkbox" id="blogPinnedInput"> Pin this post to the top
@@ -4285,6 +4599,7 @@ document.getElementById('loginBtn').addEventListener('click', async function(){
   // reveal the "add a post", "add a piece" composer forms on their pages,
   // and re render those feeds so admin only buttons (edit/delete/pin) show up
   document.getElementById('blogComposer').style.display = 'block';
+  blogLoadDraftIfAny();
   renderBlogFeed();
   document.getElementById('artComposer').style.display = 'block';
   renderArtGallery();
@@ -4628,6 +4943,20 @@ helperClose.addEventListener('click', closeHelperWidget);
 // the composer AND the filter dropdown above the feed. Add a new category by
 // just adding a string here; both places pick it up automatically.
 var BLOG_TAGS = ['Art', 'OC', 'Updates', 'Sketches', 'Writing', 'Music', 'StrawPage', 'Miscellaneous', 'Just yapping'];
+var BLOG_TAG_COLORS = {
+  'Art': { color: '#5B8C4F', light: '#DBEAD4' },
+  'OC': { color: '#A8791C', light: '#F0E4C0' },
+  'Updates': { color: '#2F5C82', light: '#D6E4EE' },
+  'Sketches': { color: '#A15C33', light: '#EFDCC8' },
+  'Writing': { color: '#9C3F63', light: '#F1D9E1' },
+  'Music': { color: '#2E7E76', light: '#D2E6E3' },
+  'StrawPage': { color: '#7C7A28', light: '#E9E7C2' },
+  'Miscellaneous': { color: '#A3402F', light: '#F4D9D3' },
+  'Just yapping': { color: '#6B4C96', light: '#E2D9EE' }
+};
+function blogTagColor(tag){
+  return BLOG_TAG_COLORS[tag] || { color: '#6E7D5C', light: '#DCE3D1' };
+}
 var currentBlogFilter = 'All'; // selected value of the category filter dropdown
 var isAdminAuthed = false; // UI only flag: shows/hides admin controls, does NOT itself grant write access
 var selectedBlogTags = []; // tags currently checked in the "new post" composer
@@ -4659,6 +4988,7 @@ BLOG_TAGS.forEach(function(tag){
   chip.type = 'button';
   chip.className = 'tag-chip';
   chip.textContent = tag;
+  chip.style.setProperty('--chip-color', blogTagColor(tag).color);
   chip.addEventListener('click', function(){
     var idx = selectedBlogTags.indexOf(tag);
     if(idx > -1){
@@ -4714,6 +5044,565 @@ function renderBlogImagePreviews(){
       renderBlogImagePreviews();
     });
   });
+}
+
+var blogEditor = document.getElementById('blogBodyInput');
+var blogToolbar = document.getElementById('blogRteToolbar');
+var blogSavedRange = null;
+var BLOG_DRAFT_KEY = 'lidlyarts_blog_draft_v1';
+
+try{ document.execCommand('defaultParagraphSeparator', false, 'p'); }catch(err){}
+try{ document.execCommand('styleWithCSS', false, true); }catch(err){}
+
+function blogSaveSelection(){
+  var sel = window.getSelection();
+  if(sel && sel.rangeCount > 0){
+    var range = sel.getRangeAt(0);
+    if(blogEditor.contains(range.commonAncestorContainer)){
+      blogSavedRange = range.cloneRange();
+    }
+  }
+}
+
+function blogRestoreSelection(){
+  blogEditor.focus();
+  if(blogSavedRange){
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(blogSavedRange);
+  }
+}
+
+document.addEventListener('selectionchange', function(){
+  if(document.activeElement === blogEditor){ blogSaveSelection(); }
+});
+
+var LEGACY_FONT_SIZE_PX = { '1':'11px', '2':'13px', '3':'16px', '4':'18px', '5':'24px', '6':'32px', '7':'48px' };
+
+function blogNormalizeContent(){
+  blogEditor.querySelectorAll('font').forEach(function(f){
+    var span = document.createElement('span');
+    var sizeAttr = f.getAttribute('size');
+    var colorAttr = f.getAttribute('color');
+    var faceAttr = f.getAttribute('face');
+    if(f.style.fontSize){
+      span.style.fontSize = f.style.fontSize;
+    } else if(sizeAttr && LEGACY_FONT_SIZE_PX[sizeAttr]){
+      span.style.fontSize = LEGACY_FONT_SIZE_PX[sizeAttr];
+    }
+    if(colorAttr) span.style.color = colorAttr;
+    if(faceAttr) span.style.fontFamily = faceAttr;
+    while(f.firstChild) span.appendChild(f.firstChild);
+    f.replaceWith(span);
+  });
+  blogEditor.querySelectorAll('a').forEach(function(a){
+    a.setAttribute('target', '_blank');
+    a.setAttribute('rel', 'noopener noreferrer');
+  });
+  if(blogEditor.innerHTML === '<br>'){ blogEditor.innerHTML = ''; }
+}
+
+function blogUpdateToolbarState(){
+  if(!blogToolbar) return;
+  blogToolbar.querySelectorAll('.rte-btn[data-cmd]').forEach(function(btn){
+    var active = false;
+    try{ active = document.queryCommandState(btn.dataset.cmd); }catch(err){}
+    btn.classList.toggle('active', active);
+  });
+  var block = '';
+  try{ block = document.queryCommandValue('formatBlock'); }catch(err){}
+  var quoteBtn = document.getElementById('rteQuoteBtn');
+  if(quoteBtn){ quoteBtn.classList.toggle('active', /blockquote/i.test(block || '')); }
+}
+
+function blogUpdateCount(){
+  var text = blogEditor.textContent || '';
+  var trimmed = text.trim();
+  var words = trimmed ? trimmed.split(/\s+/).length : 0;
+  var chars = text.length;
+  var countEl = document.getElementById('blogRteCount');
+  if(countEl){
+    countEl.textContent = words + (words === 1 ? ' word' : ' words') + ' · ' + chars + (chars === 1 ? ' character' : ' characters');
+  }
+}
+
+function blogSaveDraft(){
+  if(editingPostId != null) return;
+  try{
+    var title = document.getElementById('blogTitleInput').value;
+    var body = blogEditor.innerHTML;
+    if(!title.trim() && !body){
+      localStorage.removeItem(BLOG_DRAFT_KEY);
+      return;
+    }
+    localStorage.setItem(BLOG_DRAFT_KEY, JSON.stringify({
+      title: title,
+      body: body,
+      tags: selectedBlogTags.slice(),
+      pinned: document.getElementById('blogPinnedInput').checked
+    }));
+  } catch(err){}
+}
+
+function blogClearDraft(){
+  try{ localStorage.removeItem(BLOG_DRAFT_KEY); }catch(err){}
+  var banner = document.getElementById('blogDraftBanner');
+  if(banner) banner.style.display = 'none';
+}
+
+function blogLoadDraftIfAny(){
+  var raw = null;
+  try{ raw = localStorage.getItem(BLOG_DRAFT_KEY); }catch(err){ return; }
+  if(!raw) return;
+  var draft;
+  try{ draft = JSON.parse(raw); }catch(err){ return; }
+  if(!draft || (!draft.title && !draft.body)) return;
+  document.getElementById('blogTitleInput').value = draft.title || '';
+  blogEditor.innerHTML = draft.body || '';
+  document.getElementById('blogPinnedInput').checked = !!draft.pinned;
+  selectedBlogTags = (draft.tags || []).slice();
+  tagChipRow.querySelectorAll('.tag-chip').forEach(function(c){
+    c.classList.toggle('selected', selectedBlogTags.indexOf(c.textContent) > -1);
+  });
+  blogNormalizeContent();
+  blogUpdateCount();
+  var banner = document.getElementById('blogDraftBanner');
+  if(banner) banner.style.display = 'flex';
+}
+
+var blogDraftDiscardBtn = document.getElementById('blogDraftDiscardBtn');
+if(blogDraftDiscardBtn){
+  blogDraftDiscardBtn.addEventListener('click', function(){
+    blogClearDraft();
+    resetComposer();
+  });
+}
+
+function blogExec(command, value){
+  blogRestoreSelection();
+  try{ document.execCommand(command, false, value || null); }catch(err){}
+  blogNormalizeContent();
+  blogUpdateToolbarState();
+  blogUpdateCount();
+  blogSaveDraft();
+  blogEditor.focus();
+  blogSaveSelection();
+}
+
+function blogToggleBlockquote(){
+  blogRestoreSelection();
+  var current = '';
+  try{ current = document.queryCommandValue('formatBlock'); }catch(err){}
+  try{
+    if(/blockquote/i.test(current || '')){
+      document.execCommand('formatBlock', false, 'p');
+    } else {
+      document.execCommand('formatBlock', false, 'blockquote');
+    }
+  }catch(err){}
+  blogNormalizeContent();
+  blogUpdateToolbarState();
+  blogUpdateCount();
+  blogSaveDraft();
+  blogEditor.focus();
+  blogSaveSelection();
+}
+
+function blogApplyFontFamily(family){
+  blogRestoreSelection();
+  try{ document.execCommand('fontName', false, family); }catch(err){}
+  blogNormalizeContent();
+  blogSaveDraft();
+  blogEditor.focus();
+  blogSaveSelection();
+}
+
+function blogApplyFontSize(px){
+  blogRestoreSelection();
+  try{ document.execCommand('fontSize', false, '7'); }catch(err){}
+  blogEditor.querySelectorAll('font[size="7"]').forEach(function(f){
+    f.style.fontSize = px + 'px';
+  });
+  blogNormalizeContent();
+  blogSaveDraft();
+  blogEditor.focus();
+  blogSaveSelection();
+}
+
+function blogApplyForeColor(color){
+  blogRestoreSelection();
+  try{ document.execCommand('foreColor', false, color); }catch(err){}
+  blogNormalizeContent();
+  var bar = document.getElementById('rteForeColorBar');
+  if(bar) bar.style.background = color;
+  blogSaveDraft();
+  blogEditor.focus();
+  blogSaveSelection();
+}
+
+function blogApplyHiliteColor(color){
+  blogRestoreSelection();
+  var applied = false;
+  try{ applied = document.execCommand('hiliteColor', false, color); }catch(err){}
+  if(!applied){
+    try{ document.execCommand('backColor', false, color); }catch(err){}
+  }
+  blogNormalizeContent();
+  var bar = document.getElementById('rteHiliteColorBar');
+  if(bar) bar.style.background = color;
+  blogSaveDraft();
+  blogEditor.focus();
+  blogSaveSelection();
+}
+
+function blogInsertLink(){
+  blogRestoreSelection();
+  var selection = window.getSelection();
+  var existingHref = '';
+  if(selection.rangeCount){
+    var node = selection.anchorNode;
+    var el = node && node.nodeType === 3 ? node.parentElement : node;
+    var anchor = el && el.closest ? el.closest('a') : null;
+    if(anchor) existingHref = anchor.getAttribute('href') || '';
+  }
+  var url = window.prompt('Link URL:', existingHref || 'https://');
+  if(url === null) return;
+  url = url.trim();
+  if(!url){
+    try{ document.execCommand('unlink'); }catch(err){}
+    blogNormalizeContent();
+    blogSaveDraft();
+    blogEditor.focus();
+    return;
+  }
+  if(!/^(https?:|mailto:)/i.test(url)){
+    url = 'https://' + url;
+  }
+  var safeUrl = url.replace(/"/g, '&quot;');
+  if(selection.isCollapsed){
+    var text = window.prompt('Link text:', url);
+    if(text === null) return;
+    if(!text.trim()) text = url;
+    try{ document.execCommand('insertHTML', false, '<a href="' + safeUrl + '">' + escapeHtml(text) + '</a>'); }catch(err){}
+  } else {
+    try{ document.execCommand('createLink', false, url); }catch(err){}
+  }
+  blogNormalizeContent();
+  blogUpdateToolbarState();
+  blogSaveDraft();
+  blogEditor.focus();
+  blogSaveSelection();
+}
+
+var BLOG_RTE_FONTS = [
+  ["'Work Sans', sans-serif", 'Work Sans'],
+  ["'Patrick Hand', cursive", 'Patrick Hand'],
+  ["'Caveat', cursive", 'Caveat'],
+  ["'Kalam', cursive", 'Kalam'],
+  ["'Shadows Into Light', cursive", 'Shadows Into Light'],
+  ["'Permanent Marker', cursive", 'Permanent Marker'],
+  ["'Bangers', cursive", 'Bangers'],
+  ["'Amatic SC', cursive", 'Amatic SC'],
+  ["'Baloo 2', cursive", 'Baloo 2'],
+  ["'JetBrains Mono', monospace", 'JetBrains Mono'],
+  ["Georgia, serif", 'Georgia'],
+  ["Arial, sans-serif", 'Arial']
+];
+var rteFontFamily = document.getElementById('rteFontFamily');
+if(rteFontFamily){
+  rteFontFamily.innerHTML = '<option value="">Font</option>' + BLOG_RTE_FONTS.map(function(f){
+    return '<option value="' + f[0].replace(/"/g, '&quot;') + '">' + f[1] + '</option>';
+  }).join('');
+  rteFontFamily.addEventListener('change', function(){
+    if(!rteFontFamily.value) return;
+    blogApplyFontFamily(rteFontFamily.value);
+    rteFontFamily.value = '';
+  });
+}
+
+var BLOG_RTE_SIZES = [[13, 'Small'], [15, 'Normal'], [18, 'Medium'], [22, 'Large'], [28, 'X-Large'], [36, 'Huge']];
+var rteFontSize = document.getElementById('rteFontSize');
+if(rteFontSize){
+  rteFontSize.innerHTML = '<option value="">Size</option>' + BLOG_RTE_SIZES.map(function(s){
+    return '<option value="' + s[0] + '">' + s[1] + '</option>';
+  }).join('');
+  rteFontSize.addEventListener('change', function(){
+    if(!rteFontSize.value) return;
+    blogApplyFontSize(parseInt(rteFontSize.value, 10));
+    rteFontSize.value = '';
+  });
+}
+
+function blogClosePopovers(except){
+  ['rteForeColorPopover', 'rteHiliteColorPopover', 'rteEmojiPopover'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el && el !== except) el.style.display = 'none';
+  });
+}
+
+function blogTogglePopover(popover){
+  var isOpen = popover.style.display !== 'none';
+  blogClosePopovers();
+  popover.style.display = isOpen ? 'none' : 'block';
+}
+
+document.addEventListener('click', function(e){
+  if(!e.target.closest('.rte-group')){ blogClosePopovers(); }
+});
+
+if(blogToolbar){
+  blogToolbar.addEventListener('mousedown', function(e){
+    if(e.target.closest('button')){ e.preventDefault(); }
+  });
+
+  blogToolbar.querySelectorAll('.rte-btn[data-cmd]').forEach(function(btn){
+    btn.addEventListener('click', function(){ blogExec(btn.dataset.cmd); });
+  });
+
+  var rteUndoBtn = document.getElementById('rteUndoBtn');
+  if(rteUndoBtn) rteUndoBtn.addEventListener('click', function(){ blogExec('undo'); });
+  var rteRedoBtn = document.getElementById('rteRedoBtn');
+  if(rteRedoBtn) rteRedoBtn.addEventListener('click', function(){ blogExec('redo'); });
+
+  var rteQuoteBtn = document.getElementById('rteQuoteBtn');
+  if(rteQuoteBtn) rteQuoteBtn.addEventListener('click', blogToggleBlockquote);
+
+
+  var rteLinkBtn = document.getElementById('rteLinkBtn');
+  if(rteLinkBtn) rteLinkBtn.addEventListener('click', blogInsertLink);
+  var rteUnlinkBtn = document.getElementById('rteUnlinkBtn');
+  if(rteUnlinkBtn) rteUnlinkBtn.addEventListener('click', function(){ blogExec('unlink'); });
+
+  var rteForeColorBtn = document.getElementById('rteForeColorBtn');
+  var rteForeColorPopover = document.getElementById('rteForeColorPopover');
+  if(rteForeColorBtn && rteForeColorPopover){
+    rteForeColorBtn.addEventListener('click', function(){
+      blogSaveSelection();
+      blogTogglePopover(rteForeColorPopover);
+    });
+  }
+
+  var BLOG_TEXT_COLORS = [
+    ['#2B2620', 'Charcoal'], ['#3F2140', 'Ink'], ['#5C3A5E', 'Ink light'], ['#6E7D5C', 'Sage'],
+    ['#8A6318', 'Mustard'], ['#A3402F', 'Red'], ['#9C6E3F', 'Cork'], ['#1D5C8A', 'Blue'],
+    ['#1F7A4D', 'Green'], ['#7A1F6E', 'Purple'], ['#000000', 'Black'], ['#FFFFFF', 'White']
+  ];
+  var rteForeColorSwatches = document.getElementById('rteForeColorSwatches');
+  if(rteForeColorSwatches){
+    rteForeColorSwatches.innerHTML = BLOG_TEXT_COLORS.map(function(c){
+      return '<button type="button" class="rte-swatch" style="background:' + c[0] + '" data-color="' + c[0] + '" title="' + c[1] + '" aria-label="' + c[1] + '"></button>';
+    }).join('');
+    rteForeColorSwatches.querySelectorAll('.rte-swatch').forEach(function(sw){
+      sw.addEventListener('click', function(){
+        blogApplyForeColor(sw.dataset.color);
+        blogClosePopovers();
+      });
+    });
+  }
+  var rteForeColorCustom = document.getElementById('rteForeColorCustom');
+  if(rteForeColorCustom){
+    rteForeColorCustom.addEventListener('input', function(){
+      blogApplyForeColor(rteForeColorCustom.value);
+    });
+    rteForeColorCustom.addEventListener('change', function(){ blogClosePopovers(); });
+  }
+
+  var rteHiliteColorBtn = document.getElementById('rteHiliteColorBtn');
+  var rteHiliteColorPopover = document.getElementById('rteHiliteColorPopover');
+  if(rteHiliteColorBtn && rteHiliteColorPopover){
+    rteHiliteColorBtn.addEventListener('click', function(){
+      blogSaveSelection();
+      blogTogglePopover(rteHiliteColorPopover);
+    });
+  }
+
+  var BLOG_HIGHLIGHT_COLORS = [
+    ['#FDE9A8', 'Yellow'], ['#FFF3C4', 'Butter'], ['#DCE3D1', 'Sage'], ['#F4D3D8', 'Blush'],
+    ['#D3E4F4', 'Sky'], ['#EAD9C9', 'Sand'], ['#E0D3F4', 'Lilac']
+  ];
+  var rteHiliteColorSwatches = document.getElementById('rteHiliteColorSwatches');
+  if(rteHiliteColorSwatches){
+    rteHiliteColorSwatches.innerHTML = BLOG_HIGHLIGHT_COLORS.map(function(c){
+      return '<button type="button" class="rte-swatch" style="background:' + c[0] + '" data-color="' + c[0] + '" title="' + c[1] + '" aria-label="' + c[1] + '"></button>';
+    }).join('') + '<button type="button" class="rte-swatch rte-swatch-none" data-color="transparent" title="No highlight" aria-label="No highlight"></button>';
+    rteHiliteColorSwatches.querySelectorAll('.rte-swatch').forEach(function(sw){
+      sw.addEventListener('click', function(){
+        blogApplyHiliteColor(sw.dataset.color);
+        blogClosePopovers();
+      });
+    });
+  }
+  var rteHiliteColorCustom = document.getElementById('rteHiliteColorCustom');
+  if(rteHiliteColorCustom){
+    rteHiliteColorCustom.addEventListener('input', function(){
+      blogApplyHiliteColor(rteHiliteColorCustom.value);
+    });
+    rteHiliteColorCustom.addEventListener('change', function(){ blogClosePopovers(); });
+  }
+
+  var rteEmojiBtn = document.getElementById('rteEmojiBtn');
+  var rteEmojiPopover = document.getElementById('rteEmojiPopover');
+  if(rteEmojiBtn && rteEmojiPopover){
+    // it's a pain in the ASS adding all these btw
+    var BLOG_RTE_EMOJI = [
+      '😀', '😁', '😂', '🤣', '😅', '😆', '😊', '😇', '🙂', '🙃', '😉', '😍', '🥰', '😘', '😗', '😙',
+      '😚', '😋', '😛', '😝', '😜', '🤪', '🤨', '🧐', '🤓', '😎', '🥸', '🥳', '🤩', '😏', '😒', '😞',
+      '😔', '😟', '😕', '🙁', '☹️', '😣', '😖', '😫', '😩', '🥺', '😢', '😭', '😤', '😠', '😡', '🤬',
+      '🤯', '😳', '🥵', '🥶', '😱', '😨', '😰', '😥', '😓', '🤗', '🤔', '🫡', '🫠', '🤭', '🫢', '🫣',
+      '🤫', '🤥', '😶', '🫥', '😐', '🫤', '😑', '🙄', '😬', '😮‍💨', '🤐', '😴', '🥱', '😪', '😷', '🤒',
+      '🤕', '🤢', '🤮', '🤧', '🥴', '😵', '😵‍💫', '🤠', '🥹', '🥲', '🤡', '👻', '💀', '☠️', '👽', '👾',
+      '🤖', '💩', '🙈', '🙉', '🙊', '👍', '👎', '👏', '🙌', '🤝', '🙏', '💪', '👀', '👁️', '🫂', '✌️', 
+      '🤞', '🤟', '🤘', '👌', '🤌', '🤏', '👈', '👉', '👆', '👇', '☝️', '✋', '🤚', '🖐️', '🖖', '👋', 
+      '🫶', '👊', '✊', '🤛', '🤜', '💅', '🖌️', '✍️', '💋', '❤️', '🧡', '💛', '💚', '💙', '💜', '🖤', '🤍', '🤎', '💔', '❤️‍🔥', '❤️‍🩹', '💕', '💞', '💓', '💗',
+      '💖', '💘', '💝', '💯', '✨', '⭐', '🌟', '💫', '💥', '💢', '💦', '💨', '🕳️', '💣', '💬', '👁️‍🗨️',
+      '🔥', '🎉', '🎊', '🎈', '🎁', '🏆', '🥇', '🥈', '🥉', '🎗️', '🎫', '🎟️', '🎵', '🎶', '🎤', '🎧',
+      '🎨', '🎭', '🎬', '🎮', '🕹️', '🎲', '🧩', '📌', '📍', '📝', '✏️', '📎', '📋', '📚', '📖', '🔖',
+      '☕', '🍵', '🧋', '🍺', '🍷', '🍕', '🍔', '🍟', '🌮', '🍣', '🍩', '🍪', '🎂', '🍰', '🍫', '🍿',
+      '🌱', '🌿', '🍀', '🌸', '🌻', '🌼', '🌷', '🌹', '🌵', '🌴', '🌳', '🍁', '🍄', '🐝', '🦋', '🐛',
+      '🐶', '🐱', '🦊', '🐰', '🐻', '🐼', '🐨', '🐸', '🐢', '🐙', '🦄', '🐍', '🦖', '🐦', '🕊️', '🦉',
+      '🌈', '☀️', '🌤️', '⛅', '☁️', '🌧️', '⛈️', '🌩️', '❄️', '☃️', '🌊', '🌙', '🌕', '🌠', '⚡', '🌪️',
+      '🚀', '✈️', '🚗', '🚲', '⛵', '🏠', '🏕️', '🗺️', '🧭', '⏰', '⌛', '🔑', '🔒', '💡', '🧵', '🪡',
+      '🤑', '😈', '👿', '🫨', '🤤', '😦', '😧', '😮', '😲', '😯', '🫩', '🐘', '🦁', '🐯', '🐴', '🐮', '🐷', '🐔', '🐧', '🦆', '🦅', '🦇', '🐺', '🦓', '🦒', '🐊', '🐳',
+      '🐬', '🐟', '🐠', '🦈', '🐌', '🐞', '🕷️', '🦂', '🦗', '🐾', '🍎', '🍊', '🍋', '🍌', '🍉', '🍇', '🍓', '🫐', '🍈', '🍒', '🍑', '🥭', '🍍', '🥥', '🥝', '🍅',
+      '🥑', '🍆', '🥔', '🥕', '🌽', '🌶️', '🥦', '🧀', '🥚', '🍳', '🥓', '🥩', '🍗', '🍖', '🌭', '🥪',
+      '🌯', '🥙', '🧆', '🍜', '🍝', '🍛', '🍚', '🍙', '🍘', '🍢', '🍡', '🍥', '🥮', '🍧', '🍨', '🍦',
+      '🥧', '🧁', '🍬', '🍭', '🍮', '🍯', '📱', '💻', '⌨️', '🖥️', '🖨️', '🖱️', '💾', '💿', '📷', '📸', '🎥', '📺', '📻', '☎️', '📞', '🔋',
+      '🔌', '🧲', '💊', '🩹', '🩺', '🧬', '🔬', '🔭', '🛰️', '🧪', '🧫', '🌍', '🌎', '🌏', '🌋', '🗻', '🏔️', '⛰️', '🏖️', '🏝️', '🏜️', '🎋', '🎍', '🍃',
+      '💤', '💭', '🗯️', '♻️', '✅', '❌', '❓', '❗', '‼️', '⁉️', '💠', '🔺', '🔻', '🔶', '🔷', '🔸',
+      '🔹', '🏁', '🚩', '🎌', '⚽', '🏀', '🏈', '⚾', '🎾', '🏐', '🏉', '🎳', '⛳', '🏹', '🎣', '🥊', '🥋', '🎽', '🛹', '🎿', '🏂'
+      //FUCK FORMATTING
+    ];
+    rteEmojiPopover.innerHTML = BLOG_RTE_EMOJI.map(function(em){
+      return '<button type="button" data-emoji="' + em + '">' + em + '</button>';
+    }).join('');
+    rteEmojiPopover.querySelectorAll('button').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        blogRestoreSelection();
+        try{ document.execCommand('insertText', false, btn.dataset.emoji); }catch(err){}
+        blogClosePopovers();
+        blogUpdateCount();
+        blogSaveDraft();
+        blogEditor.focus();
+        blogSaveSelection();
+      });
+    });
+    rteEmojiBtn.addEventListener('click', function(){
+      blogSaveSelection();
+      blogTogglePopover(rteEmojiPopover);
+    });
+  }
+}
+
+blogEditor.addEventListener('input', function(){
+  var stripped = blogEditor.innerHTML.replace(/<br\s*\/?>/gi, '').trim();
+  if(stripped === ''){ blogEditor.innerHTML = ''; }
+  blogNormalizeContent();
+  blogUpdateToolbarState();
+  blogUpdateCount();
+  blogSaveSelection();
+  blogSaveDraft();
+});
+
+blogEditor.addEventListener('mouseup', function(){
+  blogSaveSelection();
+  blogUpdateToolbarState();
+});
+
+blogEditor.addEventListener('keyup', function(){
+  blogSaveSelection();
+  blogUpdateToolbarState();
+});
+
+blogEditor.addEventListener('keydown', function(e){
+  var mod = e.ctrlKey || e.metaKey;
+  if(!mod) return;
+  var key = e.key.toLowerCase();
+  if(key === 'b'){ e.preventDefault(); blogExec('bold'); }
+  else if(key === 'i'){ e.preventDefault(); blogExec('italic'); }
+  else if(key === 'u'){ e.preventDefault(); blogExec('underline'); }
+  else if(key === 'k'){ e.preventDefault(); blogInsertLink(); }
+});
+
+document.getElementById('blogTitleInput').addEventListener('input', blogSaveDraft);
+
+function blogSanitizeStyle(styleText){
+  var allowed = ['color', 'background-color', 'font-size', 'font-family', 'text-align', 'font-weight', 'font-style', 'text-decoration'];
+  var out = [];
+  (styleText || '').split(';').forEach(function(rule){
+    var idx = rule.indexOf(':');
+    if(idx === -1) return;
+    var prop = rule.slice(0, idx).trim().toLowerCase();
+    var val = rule.slice(idx + 1).trim();
+    if(allowed.indexOf(prop) === -1) return;
+    if(!val || /url\s*\(|expression\s*\(|javascript:/i.test(val)) return;
+    out.push(prop + ':' + val);
+  });
+  return out.join(';');
+}
+
+function blogSanitizeNode(node){
+  var allowedTags = { B:1, STRONG:1, I:1, EM:1, U:1, S:1, STRIKE:1, SPAN:1, P:1, DIV:1, BR:1, UL:1, OL:1, LI:1, A:1, BLOCKQUOTE:1 };
+  Array.from(node.childNodes).forEach(function(child){
+    if(child.nodeType === 1){
+      var tag = child.tagName;
+      if(tag === 'SCRIPT' || tag === 'STYLE' || tag === 'IFRAME' || tag === 'OBJECT' || tag === 'EMBED' || tag === 'SVG' || tag === 'LINK' || tag === 'META'){
+        child.remove();
+        return;
+      }
+      blogSanitizeNode(child);
+      if(!allowedTags[tag]){
+        while(child.firstChild) node.insertBefore(child.firstChild, child);
+        node.removeChild(child);
+        return;
+      }
+      Array.from(child.attributes).forEach(function(attr){
+        var name = attr.name.toLowerCase();
+        if(name === 'style'){
+          var cleaned = blogSanitizeStyle(attr.value);
+          if(cleaned){ child.setAttribute('style', cleaned); } else { child.removeAttribute('style'); }
+        } else if(tag === 'A' && name === 'href'){
+          var href = attr.value.trim();
+          if(/^(https?:|mailto:)/i.test(href)){
+            child.setAttribute('href', href);
+          } else {
+            child.removeAttribute('href');
+          }
+        } else {
+          child.removeAttribute(attr.name);
+        }
+      });
+      if(tag === 'A'){
+        child.setAttribute('target', '_blank');
+        child.setAttribute('rel', 'noopener noreferrer');
+      }
+    } else if(child.nodeType !== 3){
+      child.remove();
+    }
+  });
+}
+
+function blogSanitizeHtml(html){
+  var container = document.createElement('div');
+  container.innerHTML = html || '';
+  blogSanitizeNode(container);
+  return container.innerHTML;
+}
+
+function blogBodyToSafeHtml(body){
+  var raw = body || '';
+  if(!/<[a-z][^>]*>/i.test(raw)){
+    return escapeHtml(raw).replace(/\n/g, '<br>');
+  }
+  return blogSanitizeHtml(raw);
+}
+
+function blogBodyToPlainText(body){
+  var safe = blogBodyToSafeHtml(body);
+  var withBreaks = safe.replace(/<\/(p|div|li|blockquote)>/gi, ' ').replace(/<br\s*\/?>/gi, ' ');
+  var div = document.createElement('div');
+  div.innerHTML = withBreaks;
+  var text = div.textContent || '';
+  return text.replace(/\s+/g, ' ').trim();
 }
 
 function getPostImages(post){
@@ -4901,7 +5790,7 @@ function renderBlogFeed(){
           pinnedLabel +
           '<h2 class="blog-post-title">' + escapeHtml(post.title) + '</h2>' +
           '<p class="blog-post-date">' + formatBlogDate(post.created_at) + '</p>' +
-          '<p class="blog-post-text">' + escapeHtml(blogExcerpt(post.body, 20, 160)) + '</p>' +
+          '<p class="blog-post-text">' + escapeHtml(blogExcerpt(blogBodyToPlainText(post.body), 20, 160)) + '</p>' +
         '</div>' +
       '</button>'
     );
@@ -4962,9 +5851,10 @@ async function openBlogModal(id){
   document.getElementById('blogModalTitle').textContent = post.title || 'Untitled';
   document.getElementById('blogModalMeta').textContent = formatBlogDate(post.created_at);
   document.getElementById('blogModalTags').innerHTML = (post.tags || []).map(function(t){
-    return '<span class="blog-post-tag">' + escapeHtml(t) + '</span>';
+    var tc = blogTagColor(t);
+    return '<span class="blog-post-tag" style="background:' + tc.light + ';color:' + tc.color + ';">' + escapeHtml(t) + '</span>';
   }).join('');
-  document.getElementById('blogModalText').textContent = post.body || '';
+  document.getElementById('blogModalText').innerHTML = blogBodyToSafeHtml(post.body);
   renderBlogReactions(post);
 
   // pin/edit/delete buttons only show for the real logged in admin, and never
@@ -5116,7 +6006,14 @@ async function unpinOtherPosts(exceptId){
 // publishing, after canceling an edit, and on logout.
 function resetComposer(){
   document.getElementById('blogTitleInput').value = '';
-  document.getElementById('blogBodyInput').value = '';
+  blogEditor.innerHTML = '';
+  blogEditor.style.height = '';
+  blogUpdateCount();
+  blogClosePopovers();
+  if(rteFontFamily) rteFontFamily.value = '';
+  if(rteFontSize) rteFontSize.value = '';
+  var draftBanner = document.getElementById('blogDraftBanner');
+  if(draftBanner) draftBanner.style.display = 'none';
   document.getElementById('blogPinnedInput').checked = false;
   selectedBlogTags = [];
   composerBlogImages = [];
@@ -5134,9 +6031,14 @@ async function startEditBlogPost(id){
   var post = blogPosts.find(function(p){ return p.id == id; });
   if(!post) return;
 
+  var draftBanner = document.getElementById('blogDraftBanner');
+  if(draftBanner) draftBanner.style.display = 'none';
+
   editingPostId = post.id;
   document.getElementById('blogTitleInput').value = post.title;
-  document.getElementById('blogBodyInput').value = post.body;
+  blogEditor.innerHTML = blogBodyToSafeHtml(post.body);
+  blogNormalizeContent();
+  blogUpdateCount();
   document.getElementById('blogPinnedInput').checked = !!post.pinned;
 
   selectedBlogTags = (post.tags || []).slice();
@@ -5190,10 +6092,13 @@ async function togglePinBlogPost(id){
 // which branch runs depends on whether editingPostId is set.
 document.getElementById('publishBlogBtn').addEventListener('click', async function(){
   var title = document.getElementById('blogTitleInput').value.trim();
-  var body = document.getElementById('blogBodyInput').value.trim();
+  blogNormalizeContent();
+  var bodyPlain = (blogEditor.textContent || '').trim();
+  var body = blogSanitizeHtml(blogEditor.innerHTML);
   var pinned = document.getElementById('blogPinnedInput').checked;
+  var wasNewPost = (editingPostId == null);
 
-  if(!title || !body){
+  if(!title || !bodyPlain){
     await showAlert('Give the post a title and some text before publishing, Auntie!!!!');
     return;
   }
@@ -5272,6 +6177,7 @@ document.getElementById('publishBlogBtn').addEventListener('click', async functi
     }
   }
 
+  if(wasNewPost){ blogClearDraft(); }
   resetComposer();
   renderBlogFeed();
 });
@@ -7781,7 +8687,8 @@ var SONGS = [
   { title: 'Geen Zin in Niks', artist: '', src: 'songs/Geen Zin in Niks.mp3' },
   { title: 'Het Toeristendilemma', artist: '', src: 'songs/Het Toeristendilemma.mp3' },
   { title: 'These words are flowing out my head', artist: '', src: 'songs/These words are flowing out my head mix2.mp3' },
-  { title: 'Blame Computers', artist: '', src: 'songs/Blame computers.mp3' },
+  { title: 'Blame Computers', artist: '', src: 'songs/Blame computers.mp3' },  
+  { title: 'Punk rock for Birds', artist: '', src: 'songs/I love shitting on cars.mp3' },
 ];
 
 var musicAudio = document.getElementById('musicAudio');
